@@ -21,7 +21,7 @@ with open(os.path.join(here, 'README.md')) as f:
     README = f.read()
 
 requires = [
-    "fastapi"
+    "fastapi[all]"
 ]
 
 tests_require = [

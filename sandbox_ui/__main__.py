@@ -12,7 +12,26 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from fastapi import FastAPI
+import uvicorn
+
+
+app = FastAPI()
+
+
+@app.get("/")
+async def root():
+    """Return the frontend web app.
+    """
+    return {"message": "Hello World"}
+
+
 def main():
     """Starts backend server
     """
-    pass
+    uvicorn.run(
+        app,
+        host="127.0.0.1",
+        port=8080,
+        log_level="info"
+    )
