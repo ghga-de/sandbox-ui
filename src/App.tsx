@@ -4,7 +4,7 @@ import './w3.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{height: "calc(100vh - 10px)"}}>
       <Main />
     </div>
   );
