@@ -2,13 +2,13 @@ import logoFull from '../logo_full.png'
 
 const WelcomeModule = () => (
     <div className="w3-center">
-        <p>
-            Welcome to
-        </p>
-        <img src={logoFull} alt='' height="350px" width="350px"/>
-        <p>
+        <img src={logoFull} alt='' width="350px"/>
+        <h1>
             The GHGA Sandbox Data Portal 
-        </p>    
+        </h1>
+        <h4 className="w3-text-green">
+            Explore. Extract. Experiment.
+        </h4>   
     </div>
 );
 

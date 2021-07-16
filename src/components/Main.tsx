@@ -1,6 +1,6 @@
 import React from 'react';
 import TopBar from './TopBar';
-import './components.css'
+import './components.css';
 import { moduleIds, moduleComponents } from '../utils/modules';
 
 const Main = () => {
