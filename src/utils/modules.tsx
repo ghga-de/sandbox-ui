@@ -5,8 +5,8 @@ import Explore from '../components/Explore/Explore';
 export type moduleIds = (
     "welcome" |
     "browse" |
-    "myRequests" |
-    "myDatasets" |
+    "request" |
+    "access" |
     "login"
 )
 
@@ -15,7 +15,7 @@ export type changeModuleFunction = (newModule: moduleIds) => void;
 export const moduleComponents = {
     welcome: <Welcome />,
     browse: <Explore />,
-    myRequests: <NotImplementedYet />,
-    myDatasets: <NotImplementedYet />,
+    request: <NotImplementedYet />,
+    access: <NotImplementedYet />,
     login: <NotImplementedYet />,
 }

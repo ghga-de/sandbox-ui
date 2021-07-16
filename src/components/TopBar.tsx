@@ -40,11 +40,11 @@ const TopBar = (props: {onModuleChange: changeModuleFunction}) => (
         <BarItem moduleId="browse" onClick={props.onModuleChange}>
             Explore
         </BarItem>
-        <BarItem moduleId="myRequests" onClick={props.onModuleChange}>
-            My Requests
+        <BarItem moduleId="request" onClick={props.onModuleChange}>
+            Request
         </BarItem>
-        <BarItem moduleId="myDatasets" onClick={props.onModuleChange}>
-            My Datasets
+        <BarItem moduleId="access" onClick={props.onModuleChange}>
+            Access
         </BarItem>
         <BarItem 
             moduleId="login" 
