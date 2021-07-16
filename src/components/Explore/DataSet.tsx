@@ -7,7 +7,7 @@ import DataSetMetadata from './DataSetMetadata';
 interface dataSetProps {
     dataset: datasetOutline;
     hasFocus: boolean;
-}
+};
 
 const DataSet = (props: dataSetProps) => {
 

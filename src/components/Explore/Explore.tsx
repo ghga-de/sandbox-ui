@@ -17,14 +17,14 @@ const getAllDatasets: () => datasetOutline[] = () => {
             }
         )
     );
-}
+};
 
 const Explore = () => {
     // list of all datasets, null if not loaded yet
     const [dsList, setDsList] = React.useState<datasetOutline[]|null>(null);
 
     // on mount:
-    React.useEffect( () => setDsList(getAllDatasets()), [])
+    React.useEffect( () => setDsList(getAllDatasets()), []);
 
     return (
         <div>
@@ -48,6 +48,6 @@ const Explore = () => {
             )}
         </div>
     );
-}
+};
 
 export default Explore;

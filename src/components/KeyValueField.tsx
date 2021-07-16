@@ -1,8 +1,7 @@
-
 interface KeyValueFieldProps {
     key_: string;
     value: string;
-}
+};
 
 const KeyValueField = (props: KeyValueFieldProps) => (
     <div>

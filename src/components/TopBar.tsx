@@ -1,4 +1,3 @@
-import '../w3.css'
 import './components.css';
 import logo from '../logo.png';
 import { moduleIds, changeModuleFunction } from '../utils/modules';
@@ -9,7 +8,7 @@ interface barItemProps {
     onClick: changeModuleFunction;
     className?: string;
 }
-
+;
 const BarItem = (props: barItemProps) => (
     <button 
         className={
@@ -21,7 +20,7 @@ const BarItem = (props: barItemProps) => (
     >
         {props.children}
     </button>
-)
+);
 
 const TopBar = (props: {onModuleChange: changeModuleFunction}) => (
     <div 

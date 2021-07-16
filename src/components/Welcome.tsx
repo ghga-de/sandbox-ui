@@ -1,4 +1,4 @@
-import logoFull from '../logo_full.png'
+import logoFull from '../logo_full.png';
 
 const WelcomeModule = () => (
     <div className="w3-center">
@@ -12,4 +12,4 @@ const WelcomeModule = () => (
     </div>
 );
 
-export default WelcomeModule
+export default WelcomeModule;

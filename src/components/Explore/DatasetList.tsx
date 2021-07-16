@@ -3,7 +3,7 @@ import DataSet from './DataSet';
 
 interface dataSetListProps {
     datasets: datasetOutline[];
-}
+};
 
 const DataSetList = (props: dataSetListProps) => (
     <div style={ {overflow:"auto"} }>

@@ -3,7 +3,7 @@ import './components.css';
 interface loadingIndicatorProps {
     size: "tiny" | "small" | "large";
     message?: string;
-}
+};
 
 const LoadingIndicator = (props: loadingIndicatorProps) => (
     <div className="w3-container w3-center">
