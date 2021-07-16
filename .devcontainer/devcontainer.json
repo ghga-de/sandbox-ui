@@ -7,6 +7,7 @@
 		// Update 'VARIANT' to pick a Node version: 12, 14, 16
 		"args": { 
 			"VARIANT": "16"
+
 		}
 	},
 
@@ -19,6 +20,7 @@
 	"extensions": [
 		"dbaeumer.vscode-eslint",
 		"paulshen.paul-typescript-toolkit"
+		"EditorConfig.EditorConfig"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
