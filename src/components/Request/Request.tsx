@@ -3,7 +3,7 @@ import LoadingIndicator from '../LoadingIndicator';
 import { requestOutline } from "../../utils/requests";
 import { getRequestList } from '../../backendCalls/metadata';
 import RequestSideBar from './RequestSideBar';
-import NotImplementedYet from '../NotImplementedYet';
+import RequestContent from './RequestContent';
 
 const Request = () => {
     // list of all requests, null if not loaded yet:
@@ -36,6 +36,7 @@ const Request = () => {
                             <RequestSideBar 
                                 reqList={reqList} 
                                 reqFocus={reqFocus}
+                                changeRequestFocus={setReqFocus}
                             />
                             <div className="w3-panel w3-cell">
                                 {reqFocus == null ? (
@@ -44,7 +45,7 @@ const Request = () => {
                                             Please select a request from the left.
                                         </div>
                                     ) : (
-                                        <NotImplementedYet />
+                                        <RequestContent requestId={reqFocus}/>
                                 )}
                             </div>
                         </div>

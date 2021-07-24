@@ -6,6 +6,7 @@ import KeyValueField from "../KeyValueField";
 interface requestSideBarProps {
     reqList: requestOutline[];
     reqFocus: null | string;
+    changeRequestFocus: (newFocus: string) => void;
 }
 
 const RequestSideBar = (props: requestSideBarProps) =>  (
@@ -21,8 +22,12 @@ const RequestSideBar = (props: requestSideBarProps) =>  (
             props.reqList.map( (req) => (
                 <button
                     key={req.id}
-                    className="w3-bar-item w3-button w3-round-xlarge w3-black"
+                    className={
+                        "w3-bar-item w3-button w3-round-xlarge w3-black" +
+                        (req.id === props.reqFocus ? " w3-grey": "")
+                    }
                     style={{marginBottom: "8px"}}
+                    onClick={() => props.changeRequestFocus(req.id)}
                 >
                     <KeyValueField key_="ID" value={req.id}/>
                     <KeyValueField key_="Dataset" value={req.datasetId}/>

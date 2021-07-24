@@ -49,3 +49,20 @@ export const getRequestList: () => requestOutline[] = () => {
         )
     );
 }
+
+
+export const getReqMetadata: (reqId: string) => request = (reqId) => {
+    // currently, looks up in the hardcoded datasets object;
+    // later, will get the info from a backend API
+    
+    sleep(2);
+    let metadata: request;
+    for (const req of requests) {
+        if (req.id === reqId) {
+            metadata = req;
+        }
+    };
+
+    // @ts-ignore
+    return metadata;
+};
