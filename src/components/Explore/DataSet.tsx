@@ -1,6 +1,6 @@
 import '../components.css';
 import React from 'react';
-import { datasetOutline } from '../../utils/datasets';
+import { datasetOutline } from '../../dataModels/datasets';
 import DataSetHeader from './DataSetHeader';
 import DataSetMetadata from './DataSetMetadata';
 

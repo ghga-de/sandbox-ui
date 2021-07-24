@@ -1,5 +1,5 @@
 import '../components.css';
-import { requestOutline } from "../../utils/requests";
+import { requestOutline } from "../../dataModels/requests";
 import KeyValueField from "../KeyValueField";
 
 

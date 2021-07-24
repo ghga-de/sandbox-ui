@@ -1,6 +1,6 @@
 import React from "react";
 import { getReqMetadata } from "../../backendCalls/metadata";
-import { request } from "../../utils/requests";
+import { request } from "../../dataModels/requests";
 import Badge from "../Badge";
 import LoadingIndicator from "../LoadingIndicator";
 import NotImplementedYet from "../NotImplementedYet";

@@ -1,8 +1,8 @@
 import { sleep } from '../utils/funcUtils';
 import datasets from '../data/datasets';
 import requests from '../data/requests';
-import { dataset, datasetOutline } from '../utils/datasets';
-import { request, requestOutline } from '../utils/requests'
+import { dataset, datasetOutline } from '../dataModels/datasets';
+import { request, requestOutline } from '../dataModels/requests'
 
 export const getDsMetadata: (dsId: string) => dataset = (dsId) => {
     // currently, looks up in the hardcoded datasets object;

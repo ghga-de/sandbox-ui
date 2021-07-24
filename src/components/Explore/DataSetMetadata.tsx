@@ -1,5 +1,5 @@
 import React from 'react';
-import { dataset } from '../../utils/datasets';
+import { dataset } from '../../dataModels/datasets';
 import LoadingIndicator from '../LoadingIndicator';
 import Sample from './Sample';
 import { getDsMetadata } from "../../backendCalls/metadata";

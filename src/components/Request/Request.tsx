@@ -1,6 +1,6 @@
 import React from 'react';
 import LoadingIndicator from '../LoadingIndicator';
-import { requestOutline } from "../../utils/requests";
+import { requestOutline } from "../../dataModels/requests";
 import { getRequestList } from '../../backendCalls/metadata';
 import RequestSideBar from './RequestSideBar';
 import RequestContent from './RequestContent';

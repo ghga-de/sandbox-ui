@@ -1,6 +1,6 @@
 import React from 'react';
 import LoadingIndicator from '../LoadingIndicator';
-import { datasetOutline } from '../../utils/datasets';
+import { datasetOutline } from '../../dataModels/datasets';
 import DataSetList from './DatasetList';
 import { getAllDatasets } from "../../backendCalls/metadata";
 

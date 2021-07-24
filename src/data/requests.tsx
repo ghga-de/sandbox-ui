@@ -1,7 +1,7 @@
 // This module contains hardcoded metadata on requests
 // Later this will be served by the backend
 
-import { request } from "../utils/requests";
+import { request } from "../dataModels/requests";
 
 const requests: request[] = [
     {
