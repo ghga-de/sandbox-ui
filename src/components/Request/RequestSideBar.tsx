@@ -31,14 +31,6 @@ const RequestSideBar = (props: requestSideBarProps) =>  (
             ))
 
         }
-        <hr/>
-        <button
-            className="w3-bar-item w3-panel w3-button w3-round-xlarge side-bar-item w3-center"
-        >
-            <i className="fas fa-plus"/>&nbsp;
-            create new request
-        </button>
-
     </div>
 
 );

@@ -23,23 +23,32 @@ const Request = () => {
                         message="Simulated loading of a list of all requests..."
                     />
                 ) : (
-                    <div>
-                        <RequestSideBar 
-                            reqList={reqList} 
-                            reqFocus={reqFocus}
-                        />
-                        <div className="w3-panel w3-cell">
-                            {reqFocus == null ? (
-                                    <div className="w3-panel">
-                                        <h3>Nothing selected.</h3>
-                                        Please select a request from
-                                        the left or create a new one.
-                                    </div>
-                                ) : (
-                                    <NotImplementedYet />
-                            )}
+                    
+                    reqList.length === 0 ? (
+                        <div className="w3-panel">
+                            <h3>It's empty here.</h3>
+                            Please explore our datasets
+                            ("Explore" in the top bar) and
+                            create your first request.
                         </div>
-                    </div>
+                    ) : (
+                        <div>
+                            <RequestSideBar 
+                                reqList={reqList} 
+                                reqFocus={reqFocus}
+                            />
+                            <div className="w3-panel w3-cell">
+                                {reqFocus == null ? (
+                                        <div className="w3-panel">
+                                            <h3>Nothing selected.</h3>
+                                            Please select a request from the left.
+                                        </div>
+                                    ) : (
+                                        <NotImplementedYet />
+                                )}
+                            </div>
+                        </div>
+                    )
             )}
         </div>
     );
