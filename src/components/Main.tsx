@@ -19,7 +19,10 @@ const Main = () => {
 
     return (
         <div style={{height: "100%", margin: "10px 16px"}}>
-            <TopBar onModuleChange={setModuleFocus}></TopBar>
+            <TopBar 
+                moduleFocus={moduleFocus}
+                onModuleChange={setModuleFocus}
+            />
             <div 
                 className="w3-panel w3-round-xlarge foreground"
                 style={{height: "calc(100% - 70px)", padding: "0px"}}
