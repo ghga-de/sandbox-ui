@@ -4,7 +4,7 @@ interface KeyValueFieldProps {
 };
 
 const KeyValueField = (props: KeyValueFieldProps) => (
-    <div>
+    <div style={{whiteSpace: "nowrap"}}>
         <span className="w3-text-green" style={{ padding: "8px"}}>{props.key_}:</span>
         {props.value}
     </div>

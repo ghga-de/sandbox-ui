@@ -12,8 +12,8 @@ const Explore = () => {
     React.useEffect( () => setDsList(getAllDatasets()), []);
 
     return (
-        <div>
-            <div className="w3-panel w3-center">
+        <div className="w3-panel">
+            <div className="w3-container w3-center">
                 <h1>
                     <i className="fas fa-search"/> &nbsp;
                     Explore Our Catalog of Datasets

@@ -2,7 +2,6 @@ export type moduleIds = (
     "welcome" |
     "browse" |
     "request" |
-    "access" |
     "login"
 )
 

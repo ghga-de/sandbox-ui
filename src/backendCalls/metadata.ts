@@ -1,7 +1,8 @@
 import { sleep } from '../utils/funcUtils';
-import { datasets } from '../data/datasets';
-import { dataset } from '../utils/datasets';
-import { datasetOutline } from '../utils/datasets';
+import datasets from '../data/datasets';
+import requests from '../data/requests';
+import { dataset, datasetOutline } from '../utils/datasets';
+import { request, requestOutline } from '../utils/requests'
 
 export const getDsMetadata: (dsId: string) => dataset = (dsId) => {
     // currently, looks up in the hardcoded datasets object;
@@ -33,3 +34,18 @@ export const getAllDatasets: () => datasetOutline[] = () => {
         )
     );
 };
+
+
+export const getRequestList: () => requestOutline[] = () => {
+    // currently, looks up in the hardcoded requests object;
+    // later, will get the info from a backend API
+    sleep(2)
+    return requests.map( (req) => (
+            {    
+                id: req.id,
+                datasetId: req.datasetId,
+                status: req.status
+            }
+        )
+    );
+}

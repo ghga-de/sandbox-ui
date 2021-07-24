@@ -1,7 +1,7 @@
 // This module contains hardcoded metadata on datasets
 // Later this will be served by the backend
 
-export const datasets = [
+const datasets = [
     {
         id: "GHGAD-2300234",
         study: {
@@ -114,3 +114,6 @@ export const datasets = [
     }
 
 ];
+
+
+export default datasets;

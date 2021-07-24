@@ -1,7 +1,7 @@
 import logoFull from '../logo_full.png';
 
 const WelcomeModule = () => (
-    <div className="w3-center">
+    <div className="w3-panel w3-center">
         <img src={logoFull} alt='' width="350px"/>
         <h1>
             The GHGA Sandbox Data Portal 
