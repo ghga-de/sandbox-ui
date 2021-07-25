@@ -1,7 +1,18 @@
 import React from 'react';
 import TopBar from './TopBar';
+import Welcome from '../components/Welcome';
+import NotImplementedYet from '../components/NotImplementedYet';
+import Explore from '../components/Explore/Explore';
 import './components.css';
-import { moduleIds, moduleComponents } from '../utils/modules';
+import { moduleIds } from '../utils/modules';
+
+export const moduleComponents = {
+    welcome: <Welcome />,
+    browse: <Explore />,
+    request: <NotImplementedYet />,
+    access: <NotImplementedYet />,
+    login: <NotImplementedYet />,
+}
 
 const Main = () => {
     const [moduleFocus, setModuleFocus] = React.useState<moduleIds>("welcome");
