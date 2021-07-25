@@ -1,23 +1,8 @@
 import React from 'react';
-import { datasets } from '../../data/datasets';
 import LoadingIndicator from '../LoadingIndicator';
-import { sleep } from '../../utils/funcUtils';
 import { datasetOutline } from '../../utils/datasets';
 import DataSetList from './DatasetList';
-
-const getAllDatasets: () => datasetOutline[] = () => {
-    // currently, looks up in the hardcoded datasets object;
-    // later, will get the info from a backend API
-    sleep(2)
-    return datasets.map( (ds) => (
-            {    
-                id: ds.id,
-                studyId: ds.study.id,
-                studyTitle: ds.study.title
-            }
-        )
-    );
-};
+import { getAllDatasets } from "../../backendCalls/metadata";
 
 const Explore = () => {
     // list of all datasets, null if not loaded yet
