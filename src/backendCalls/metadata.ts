@@ -6,7 +6,7 @@ export const getDsMetadata: (dsId: string) => dataset = (dsId) => {
     // currently, looks up in the hardcoded datasets object;
     // later, will get the info from a backend API
     
-    sleep(2);
+    sleep(0.25);
     let metadata: dataset;
     for (const ds of datasets) {
         if (ds.id === dsId) {
@@ -22,7 +22,7 @@ export const getDsMetadata: (dsId: string) => dataset = (dsId) => {
 export const getAllDatasets: () => datasetOutline[] = () => {
     // currently, looks up in the hardcoded datasets object;
     // later, will get the info from a backend API
-    sleep(2)
+    sleep(0.25)
     return datasets.map( (ds) => (
             {    
                 id: ds.id,
