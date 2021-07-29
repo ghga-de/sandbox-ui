@@ -3,11 +3,9 @@
 
 import { user } from "../dataModels/users"
 
-export const hardCodedUserId="GHGAU-812092343" 
-
 export const users: user[] = [
     {
-        id: hardCodedUserId,
+        id: "GHGAU-812092343",
         firstName: "Carry",
         lastName: "Catfish",
         isDataSteward: false,
