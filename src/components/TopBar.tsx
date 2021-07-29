@@ -4,6 +4,7 @@ import logo from '../logo.png';
 import { moduleIds} from '../utils/modules';
 import { Link } from "react-router-dom";
 import { getCurrentUser } from '../utils/funcUtils';
+import modules from './modules';
 
 interface barItemProps {
     children: any;
@@ -17,26 +18,35 @@ interface topBarProps {
     moduleFocus: moduleIds;
 }
 
-const BarItem = (props: barItemProps) => (
-    <Link 
-        to={`/${props.moduleId}`}
-    >
-        <button
-            className={
-                "w3-container w3-button w3-round-xlarge" +
-                (props.className ? ` ${props.className}` : "") +
-                (props.isHome ? (
-                        " w3-green"
-                    ) : (
-                        (props.moduleFocus === props.moduleId ? " w3-light-grey" : "")
-                )) 
-            }
-            style={{height: "50px", marginRight: "10px"}}
+const BarItem = (props: barItemProps) => {
+    // if authentication is required for the
+    // corresponding module,
+    // only render the BarItem if user is logged in
+    const currentUser = getCurrentUser();
+    
+    return (modules[props.moduleId].authRequired && !currentUser) ? (
+        <span></span>
+    ) : (
+        <Link 
+            to={`/${props.moduleId}`}
         >
-            {props.children}
-        </button>
-    </Link>
-);
+            <button
+                className={
+                    "w3-container w3-button w3-round-xlarge" +
+                    (props.className ? ` ${props.className}` : "") +
+                    (props.isHome ? (
+                            " w3-green"
+                        ) : (
+                            (props.moduleFocus === props.moduleId ? " w3-light-grey" : "")
+                    )) 
+                }
+                style={{height: "50px", marginRight: "10px"}}
+            >
+                {props.children}
+            </button>
+        </Link>
+    );
+};
 
 const TopBar = (props: topBarProps) => {
     const currentUser = getCurrentUser()
