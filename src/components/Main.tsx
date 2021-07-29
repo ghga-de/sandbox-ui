@@ -3,14 +3,14 @@ import TopBar from './TopBar';
 import Welcome from '../components/Welcome';
 import NotImplementedYet from '../components/NotImplementedYet';
 import Explore from '../components/Explore/Explore';
-import Request from './Request/Request';
+import RequestRouter from './Request/RequestRouter';
 import './components.css';
 import { moduleIds } from '../utils/modules';
 
 export const moduleComponents = {
     welcome: <Welcome />,
     explore: <Explore />,
-    request: <Request />,
+    request: <RequestRouter />,
     login: <NotImplementedYet />,
 }
 

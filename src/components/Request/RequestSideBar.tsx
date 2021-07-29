@@ -1,12 +1,12 @@
 import '../components.css';
+import { Link } from 'react-router-dom';
 import { requestOutline } from "../../dataModels/requests";
 import KeyValueField from "../KeyValueField";
 
 
 interface requestSideBarProps {
     reqList: requestOutline[];
-    reqFocus: null | string;
-    changeRequestFocus: (newFocus: string) => void;
+    reqFocus?: string;
 }
 
 const RequestSideBar = (props: requestSideBarProps) =>  (
@@ -20,19 +20,23 @@ const RequestSideBar = (props: requestSideBarProps) =>  (
         <h2 className="w3-bar-item w3-round-xlarge">Requests:</h2>
         {
             props.reqList.map( (req) => (
-                <button
+                <Link 
                     key={req.id}
-                    className={
-                        "w3-bar-item w3-button w3-round-xlarge w3-black" +
-                        (req.id === props.reqFocus ? " w3-light-grey": "")
-                    }
-                    style={{marginBottom: "8px"}}
-                    onClick={() => props.changeRequestFocus(req.id)}
+                    to={`/request/${req.id}`}
+                    style={{textDecoration: "none"}}
                 >
-                    <KeyValueField key_="ID" value={req.id}/>
-                    <KeyValueField key_="Dataset" value={req.datasetId}/>
-                    <KeyValueField key_="Status" value={req.status}/>
-                </button>
+                    <button
+                        className={
+                            "w3-bar-item w3-button w3-round-xlarge w3-black" +
+                            (req.id === props.reqFocus ? " w3-light-grey": "")
+                        }
+                        style={{marginBottom: "8px"}}
+                    >
+                        <KeyValueField key_="ID" value={req.id}/>
+                        <KeyValueField key_="Dataset" value={req.datasetId}/>
+                        <KeyValueField key_="Status" value={req.status}/>
+                    </button>
+                </Link>
             ))
 
         }
