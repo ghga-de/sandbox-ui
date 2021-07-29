@@ -1,0 +1,7 @@
+#!/bin/bash
+# start web app using the development server
+
+cd /workspace
+
+# start development server
+yarn start
