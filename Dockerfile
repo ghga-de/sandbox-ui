@@ -19,7 +19,8 @@ COPY . /service
 WORKDIR /service
 
 # build the app
-RUN yarn build \
+RUN yarn install \
+    && yarn build \
     && yarn global add serve
 
 # create new user and execute as that user
