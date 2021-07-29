@@ -1,9 +1,8 @@
 import React from "react";
-import { getReqMetadata } from "../../backendCalls/metadata";
+import { getReqMetadata } from "../../backendCalls/requests";
 import { request } from "../../dataModels/requests";
 import Badge from "../Badge";
 import LoadingIndicator from "../LoadingIndicator";
-import NotImplementedYet from "../NotImplementedYet";
 
 interface requestContentProps {
     requestId: string;
@@ -41,6 +40,7 @@ const RequestContent = (props: requestContentProps) => {
                                 {reqMetadata.purpose}
                             </div>
                             <div className="w3-panel">
+                                <hr/>
                                 <span className="w3-text-green w3-large">History:</span>
                                 <br/>
                                 {reqMetadata.history

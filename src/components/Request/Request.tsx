@@ -1,7 +1,7 @@
 import React from 'react';
 import LoadingIndicator from '../LoadingIndicator';
 import { requestOutline } from "../../dataModels/requests";
-import { getRequestList } from '../../backendCalls/metadata';
+import { getRequestList } from '../../backendCalls/requests';
 import RequestSideBar from './RequestSideBar';
 import RequestContent from './RequestContent';
 
@@ -45,7 +45,7 @@ const Request = () => {
                                             Please select a request from the left.
                                         </div>
                                     ) : (
-                                        <RequestContent requestId={reqFocus}/>
+                                        <RequestContent key={"reqContent-" + reqFocus} requestId={reqFocus}/>
                                 )}
                             </div>
                         </div>
