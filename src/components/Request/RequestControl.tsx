@@ -1,6 +1,12 @@
 import Button from "../Button";
 
 const controlButtonStyle = {margin: "8px"};
+const messageRequiresBackend = () => {
+    alert(
+        "This feature is not implemented yet " +
+        "because it requires a persistent backend."
+    );
+};
 
 const RequestControl = (props: { datasetId: string }) => (
     <div className="w3-panel">
@@ -13,6 +19,7 @@ const RequestControl = (props: { datasetId: string }) => (
                 style={controlButtonStyle}
                 icon="fas fa-check"
                 color="green"
+                onClick={messageRequiresBackend}
             >
                 approve
             </Button>
@@ -20,6 +27,7 @@ const RequestControl = (props: { datasetId: string }) => (
                 style={controlButtonStyle}
                 icon="fas fa-times"
                 color="red"
+                onClick={messageRequiresBackend}
             >
                 decline
             </Button>
