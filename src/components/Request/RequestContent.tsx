@@ -37,7 +37,7 @@ const RequestContent = (props: requestContentProps) => {
                             <RequestInfo reqMetadata={reqMetadata} />
                             <hr/>
                             <RequestHistory reqMetadata={reqMetadata} />
-                            {(currentUser && currentUser.isDataSteward) ? (
+                            {(currentUser && currentUser.isDataSteward && reqMetadata.status === "pending") ? (
                                 <div>
                                     <hr/>
                                     <RequestControl datasetId={reqMetadata.datasetId} />
