@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter as Router } from "react-router-dom";
 import TopBar from './TopBar';
 import Welcome from '../components/Welcome';
 import NotImplementedYet from '../components/NotImplementedYet';
@@ -10,25 +9,23 @@ import { moduleIds } from '../utils/modules';
 
 export const moduleComponents = {
     welcome: <Welcome />,
-    browse: <Explore />,
+    explore: <Explore />,
     request: <Request />,
     login: <NotImplementedYet />,
 }
 
-const Main = () => {
-    const [moduleFocus, setModuleFocus] = React.useState<moduleIds>("welcome");
 
+const Main = (props: {moduleFocus: moduleIds}) => {
     return (
         <div style={{height: "100%", margin: "10px 16px"}}>
             <TopBar 
-                moduleFocus={moduleFocus}
-                onModuleChange={setModuleFocus}
+                moduleFocus={props.moduleFocus}
             />
             <div 
                 className="w3-panel w3-round-xlarge foreground"
                 style={{height: "calc(100% - 70px)", padding: "0px"}}
             >
-                {moduleComponents[moduleFocus]}
+                {moduleComponents[props.moduleFocus]}
             </div>
 
         </div>
