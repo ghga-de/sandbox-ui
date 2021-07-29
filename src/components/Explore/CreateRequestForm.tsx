@@ -34,7 +34,7 @@ const CreateRequestForm = (props: createRequestFormProps) => {
                             alert(
                                 "Your are a Data Steward.\n" + 
                                 "Data Steward cannot request access to a dataset.\n\n" +
-                                "Please login with another account."
+                                "Please log in with another account."
                             )
                         } else {
                             const reqId = postNewRequest(
@@ -49,7 +49,7 @@ const CreateRequestForm = (props: createRequestFormProps) => {
                     } else {
                         alert(
                             "You are not authenticated.\n\n" +
-                            "Please login first."
+                            "Please log in first."
                         );
                     }
                 }}
