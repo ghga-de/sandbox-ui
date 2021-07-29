@@ -1,6 +1,7 @@
 import { requestOutline } from "../../dataModels/requests";
 import RequestSideBar from './RequestSideBar';
 import RequestContent from './RequestContent';
+import { getCurrentUser } from "../../utils/funcUtils";
 
 interface requestProps {
     reqList: requestOutline[];
@@ -8,9 +9,19 @@ interface requestProps {
 };
 
 const Request = (props: requestProps) => {
+    const currentUser = getCurrentUser();
+    
+    // if currentUser is not a data steward,
+    // only show the requests of that user:
+    const reqList = (currentUser && !currentUser.isDataSteward) ? (
+        props.reqList.filter( (req) => req.requesterId === currentUser.id)
+    ) : (
+        props.reqList
+    )
+
     return (
         <div>
-            {props.reqList.length === 0 ? (
+            {reqList.length === 0 ? (
                 <div className="w3-panel">
                     <h3>It's empty here.</h3>
                     Please explore our datasets
@@ -20,7 +31,7 @@ const Request = (props: requestProps) => {
             ) : (
                 <div>
                     <RequestSideBar 
-                        reqList={props.reqList} 
+                        reqList={reqList} 
                         reqFocus={props.reqFocus}
                     />
                     <div className="w3-panel w3-cell">
