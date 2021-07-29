@@ -3,5 +3,9 @@
 
 cd /workspace
 
+# set config variables:
+export REACT_APP_WELCOME_INFO="This web app is used as part of an implementation study.
+It is not intended for production and has only limitted functionality."
+
 # start development server
 yarn start
