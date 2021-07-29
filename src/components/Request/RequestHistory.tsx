@@ -3,7 +3,6 @@ import { request } from "../../dataModels/requests";
 const RequestHistory = (props: { reqMetadata: request }) => (
     
     <div className="w3-panel">
-        <hr/>
         <span className="w3-text-green w3-large">History:</span>
         <br/>
         {props.reqMetadata.history

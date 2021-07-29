@@ -1,6 +1,7 @@
 import React from "react";
 import { postNewRequest } from "../../backendCalls/requests";
 import { getCurrentUser } from "../../utils/funcUtils";
+import Button from "../Button";
 
 interface createRequestFormProps {
     datasetId: string,
@@ -25,8 +26,10 @@ const CreateRequestForm = (props: createRequestFormProps) => {
                 value={purpose}
                 onChange={(event) => setPurpose(event.currentTarget.value)}
             />
-            <button 
-                className="w3-button w3-right w3-round-xlarge w3-green"
+            <Button 
+                className="w3-right"
+                color="green"
+                icon="fas fa-key"
                 style={{margin: "16px"}}
                 onClick={() => {
                     if (currentUser) {
@@ -54,8 +57,8 @@ const CreateRequestForm = (props: createRequestFormProps) => {
                     }
                 }}
             >
-                <i className="fas fa-key"/>&nbsp;Send Request
-            </button>
+                Send Request
+            </Button>
         </div>
     );
 };

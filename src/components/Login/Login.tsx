@@ -1,6 +1,7 @@
 import { users } from "../../data/users";
 import { getCurrentUser, logout } from "../../utils/funcUtils";
 import UserItem from "./UserItem";
+import Button from "../Button";
 
 const Login = () => {
     const currentUser = getCurrentUser();
@@ -26,14 +27,14 @@ const Login = () => {
                 ))}
             </div>
             {currentUser && (
-                <button 
-                    className="w3-button w3-green w3-round-xlarge"
+                <Button
+                    color="green"
+                    icon="fas fa-sign-out-alt"
                     style={{marginLeft: "24px"}}
                     onClick={logout}
                 >
-                    <i className="fas fa-sign-out-alt"/>&nbsp;
                     log out
-                </button>
+                </Button>
             )}
         </div>
     );

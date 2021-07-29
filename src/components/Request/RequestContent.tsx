@@ -5,12 +5,15 @@ import RequestInfo from "./RequestInfo";
 import LoadingIndicator from "../LoadingIndicator";
 import FileAccessList from "./FileAccessList";
 import RequestHistory from "./RequestHistory";
+import { getCurrentUser } from "../../utils/funcUtils";
+import RequestControl from "./RequestControl";
 
 interface requestContentProps {
     requestId: string;
 };
 
 const RequestContent = (props: requestContentProps) => {
+    const currentUser = getCurrentUser();
     const [reqMetadata, setReqMetadata] = React.useState<request|null>(null);
 
     // on mount:
@@ -32,13 +35,20 @@ const RequestContent = (props: requestContentProps) => {
                     ) : (
                         <div className="w3-center">
                             <RequestInfo reqMetadata={reqMetadata} />
+                            <hr/>
                             <RequestHistory reqMetadata={reqMetadata} />
-                            {reqMetadata.status === "approved" && (
+                            {(currentUser && currentUser.isDataSteward) ? (
                                 <div>
                                     <hr/>
-                                    <FileAccessList datasetId={reqMetadata.datasetId} />
+                                    <RequestControl datasetId={reqMetadata.datasetId} />
                                 </div>
-                            )}
+                            ) : (
+                                reqMetadata.status === "approved" && (
+                                    <div>
+                                        <hr/>
+                                        <FileAccessList datasetId={reqMetadata.datasetId} />
+                                    </div>
+                            ))}
                         </div>
                 )}
                 
