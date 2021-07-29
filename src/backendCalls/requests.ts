@@ -38,7 +38,7 @@ interface newRequestModel {
     requesterId: string;
 };
 
-export const postNewRequest: (newRequest: newRequestModel) => void = (newRequest) => {
+export const postNewRequest: (newRequest: newRequestModel) => string = (newRequest) => {
     
     const reqObj: request= {
         id: "GHGAR-" + Math.round(Math.random()*1000000000).toString(),
@@ -55,4 +55,6 @@ export const postNewRequest: (newRequest: newRequestModel) => void = (newRequest
     }
 
     requests.push(reqObj);
+
+    return reqObj.id
 }
