@@ -3,4 +3,5 @@ export interface user {
     firstName: string;
     lastName: string;
     isDataSteward: boolean;
+    icon: string;
 };

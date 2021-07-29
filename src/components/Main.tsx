@@ -1,7 +1,7 @@
 import React from 'react';
 import TopBar from './TopBar';
 import Welcome from '../components/Welcome';
-import NotImplementedYet from '../components/NotImplementedYet';
+import Login from './Login/Login';
 import Explore from '../components/Explore/Explore';
 import RequestRouter from './Request/RequestRouter';
 import './components.css';
@@ -11,7 +11,7 @@ export const moduleComponents = {
     welcome: <Welcome />,
     explore: <Explore />,
     request: <RequestRouter />,
-    login: <NotImplementedYet />,
+    login: <Login />,
 }
 
 

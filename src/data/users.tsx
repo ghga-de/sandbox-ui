@@ -10,12 +10,14 @@ export const users: user[] = [
         id: hardCodedUserId,
         firstName: "Carry",
         lastName: "Catfish",
-        isDataSteward: false
+        isDataSteward: false,
+        icon: "fas fa-user-graduate"
     },
     {
         id: "GHGAU-99812812",
         firstName: "Mike",
         lastName: "Mushroom",
-        isDataSteward: true
+        isDataSteward: true,
+        icon: "fas fa-user-astronaut"
     }
 ]
