@@ -51,11 +51,8 @@ const RequestContent = (props: requestContentProps) => {
                                             key={event.datetime.toUTCString()}
                                         >
                                             <span className="w3-text-green w3-small">
-                                                {event.datetime.getHours()}:
-                                                {event.datetime.getMinutes()}&nbsp;-&nbsp;
-                                                {event.datetime.getDay()}.
-                                                {event.datetime.getMonth()}.
-                                                {event.datetime.getFullYear()}
+                                                {event.datetime.toLocaleTimeString("de")}&nbsp;-&nbsp;
+                                                {event.datetime.toLocaleDateString("de")}
                                             </span><br/>
                                             <span>request {event.eventType}</span>
                                         </div>
