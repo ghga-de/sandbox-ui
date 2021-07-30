@@ -1,6 +1,6 @@
 import { sleep } from '../utils/funcUtils';
 import datasets from '../data/datasets';
-import { dataset, datasetOutline } from '../dataModels/datasets';
+import { dataset, datasetOutline, file } from '../dataModels/datasets';
 
 export const getDsMetadata: (dsId: string) => dataset = (dsId) => {
     // currently, looks up in the hardcoded datasets object;
@@ -31,4 +31,12 @@ export const getAllDatasets: () => datasetOutline[] = () => {
             }
         )
     );
+};
+
+
+export const getFileListByDsId: (dsId: string) => file[] = (dsId) => {
+    const dataset = getDsMetadata(dsId);
+    return dataset.samples.map( (sample) => (
+        sample.files
+    )).flat(2);
 };
