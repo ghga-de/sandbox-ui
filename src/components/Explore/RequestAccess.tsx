@@ -13,7 +13,7 @@ const RequestAccess = (props: {datasetId: string}) => {
                                 className="w3-panel w3-round-xlarge w3-center w3-green w3-text-black"
                                 style={{margin: "16px"}}
                             >
-                                Request was send. 
+                                Request was sent. 
                                 Please check the status by clicking
                                 on the "Request" item in the top bar.
                             </div>
