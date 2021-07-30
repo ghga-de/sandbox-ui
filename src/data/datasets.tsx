@@ -1,7 +1,9 @@
 // This module contains hardcoded metadata on datasets
 // Later this will be served by the backend
 
-export const datasets = [
+import { dataset } from "../dataModels/datasets";
+
+const datasets: dataset[] = [
     {
         id: "GHGAD-2300234",
         study: {
@@ -114,3 +116,6 @@ export const datasets = [
     }
 
 ];
+
+
+export default datasets;

@@ -12,9 +12,16 @@
 }
 
 .interactive-item-header {
-    background-color: rgb(34, 34, 34);
+    background-color: black;
 }
 
+.side-bar {
+    background-color: rgb(48, 48, 48);
+}
+
+.side-bar-item {
+    background-color: rgb(34, 34, 34);
+}
 
 .large-loader {
     border: 16px solid #f3f3f3; /* Light grey */

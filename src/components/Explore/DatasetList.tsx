@@ -1,4 +1,4 @@
-import { datasetOutline } from '../../utils/datasets';
+import { datasetOutline } from '../../dataModels/datasets';
 import DataSet from './DataSet';
 
 interface dataSetListProps {

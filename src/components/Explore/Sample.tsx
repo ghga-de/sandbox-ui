@@ -1,4 +1,4 @@
-import { sample } from '../../utils/datasets';
+import { sample } from '../../dataModels/datasets';
 import KeyValueField from '../KeyValueField';
 
 const Sample = (props: {sample: sample}) => (

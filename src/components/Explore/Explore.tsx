@@ -1,23 +1,8 @@
 import React from 'react';
-import { datasets } from '../../data/datasets';
 import LoadingIndicator from '../LoadingIndicator';
-import { sleep } from '../../utils/funcUtils';
-import { datasetOutline } from '../../utils/datasets';
+import { datasetOutline } from '../../dataModels/datasets';
 import DataSetList from './DatasetList';
-
-const getAllDatasets: () => datasetOutline[] = () => {
-    // currently, looks up in the hardcoded datasets object;
-    // later, will get the info from a backend API
-    sleep(2)
-    return datasets.map( (ds) => (
-            {    
-                id: ds.id,
-                studyId: ds.study.id,
-                studyTitle: ds.study.title
-            }
-        )
-    );
-};
+import { getAllDatasets } from "../../backendCalls/metadata";
 
 const Explore = () => {
     // list of all datasets, null if not loaded yet
@@ -27,8 +12,8 @@ const Explore = () => {
     React.useEffect( () => setDsList(getAllDatasets()), []);
 
     return (
-        <div>
-            <div className="w3-panel w3-center">
+        <div className="w3-panel">
+            <div className="w3-container w3-center">
                 <h1>
                     <i className="fas fa-search"/> &nbsp;
                     Explore Our Catalog of Datasets

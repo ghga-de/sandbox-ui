@@ -1,4 +1,4 @@
-import { datasetOutline } from '../../utils/datasets';
+import { datasetOutline } from '../../dataModels/datasets';
 import '../components.css';
 
 const DataSetHeader = (props: {dataset: datasetOutline}) => (

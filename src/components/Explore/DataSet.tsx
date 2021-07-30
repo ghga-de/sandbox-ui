@@ -1,8 +1,9 @@
 import '../components.css';
 import React from 'react';
-import { datasetOutline } from '../../utils/datasets';
+import { datasetOutline } from '../../dataModels/datasets';
 import DataSetHeader from './DataSetHeader';
 import DataSetMetadata from './DataSetMetadata';
+import RequestAccess from './RequestAccess';
 
 interface dataSetProps {
     dataset: datasetOutline;
@@ -24,12 +25,7 @@ const DataSet = (props: dataSetProps) => {
             {hasFocus && (
                 <div>
                     <DataSetMetadata dsId={props.dataset.id} />
-                    <button 
-                        className="w3-button w3-right w3-round-xlarge w3-green"
-                        style={{margin: "16px"}}
-                    >
-                        <i className="fas fa-key"/>&nbsp;Request Access
-                    </button>
+                    <RequestAccess datasetId={props.dataset.id} />
                 </div>
             )}
         </div>
