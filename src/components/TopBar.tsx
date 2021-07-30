@@ -22,7 +22,7 @@ const BarItem = (props: barItemProps) => (
             (props.className ? (
                     " " + props.className
                 ) : (
-                    (props.moduleFocus === props.moduleId ? " w3-grey" : "")
+                    (props.moduleFocus === props.moduleId ? " w3-light-grey" : "")
             )) 
         }
         style={{height: "50px", marginRight: "10px"}}

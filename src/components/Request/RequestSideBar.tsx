@@ -24,7 +24,7 @@ const RequestSideBar = (props: requestSideBarProps) =>  (
                     key={req.id}
                     className={
                         "w3-bar-item w3-button w3-round-xlarge w3-black" +
-                        (req.id === props.reqFocus ? " w3-grey": "")
+                        (req.id === props.reqFocus ? " w3-light-grey": "")
                     }
                     style={{marginBottom: "8px"}}
                     onClick={() => props.changeRequestFocus(req.id)}

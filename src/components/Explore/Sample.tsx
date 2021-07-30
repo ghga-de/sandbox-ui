@@ -1,4 +1,5 @@
 import { sample } from '../../dataModels/datasets';
+import { bytesToGB } from '../../utils/funcUtils';
 import KeyValueField from '../KeyValueField';
 
 const Sample = (props: {sample: sample}) => (
@@ -39,7 +40,7 @@ const Sample = (props: {sample: sample}) => (
                                     <tr key={file.id}>
                                         <td style={{padding: "8px"}}>{file.id}</td>
                                         <td style={{padding: "8px"}}>{file.name}</td>
-                                        <td style={{padding: "8px"}}>{(file.size/10^9).toFixed(1)}</td>
+                                        <td style={{padding: "8px"}}>{bytesToGB(file.size)}</td>
                                     </tr>
                                 ))}    
                             </tbody>

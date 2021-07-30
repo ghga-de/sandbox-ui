@@ -3,7 +3,7 @@ import '../components.css';
 
 const DataSetHeader = (props: {dataset: datasetOutline}) => (
     <div 
-        className="w3-bar w3-round-xlarge w3-hover-grey interactive-item-header"
+        className="w3-bar w3-round-xlarge w3-hover-light-grey interactive-item-header"
     >   
         <div className="w3-bar-item">
             <table><tbody>
