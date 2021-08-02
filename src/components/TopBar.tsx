@@ -18,7 +18,6 @@ interface topBarProps {
 const BarItem = (props: barItemProps) => (
     <Link 
         to={`/${props.moduleId}`}
-
     >
         <button
             className={
