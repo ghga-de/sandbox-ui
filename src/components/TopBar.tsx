@@ -1,35 +1,38 @@
 import './components.css';
+import React from 'react';
 import logo from '../logo.png';
-import { moduleIds, changeModuleFunction } from '../utils/modules';
+import { moduleIds} from '../utils/modules';
+import { Link } from "react-router-dom";
 
 interface barItemProps {
     children: any;
     moduleId: moduleIds;
-    onClick: changeModuleFunction;
     moduleFocus: moduleIds;
     className?: string;
 };
 
 interface topBarProps {
     moduleFocus: moduleIds;
-    onModuleChange: changeModuleFunction;
 }
 
 const BarItem = (props: barItemProps) => (
-    <button 
-        className={
-            "w3-container w3-button w3-round-xlarge" +
-            (props.className ? (
-                    " " + props.className
-                ) : (
-                    (props.moduleFocus === props.moduleId ? " w3-light-grey" : "")
-            )) 
-        }
-        style={{height: "50px", marginRight: "10px"}}
-        onClick={() => props.onClick(props.moduleId)}
+    <Link 
+        to={`/${props.moduleId}`}
     >
-        {props.children}
-    </button>
+        <button
+            className={
+                "w3-container w3-button w3-round-xlarge" +
+                (props.className ? (
+                        " " + props.className
+                    ) : (
+                        (props.moduleFocus === props.moduleId ? " w3-light-grey" : "")
+                )) 
+            }
+            style={{height: "50px", marginRight: "10px"}}
+        >
+            {props.children}
+        </button>
+    </Link>
 );
 
 const TopBar = (props: topBarProps) => (
@@ -37,8 +40,7 @@ const TopBar = (props: topBarProps) => (
         className="w3-bar w3-center w3-round-xlarge background"
     >
         <BarItem 
-            moduleId="welcome" 
-            onClick={props.onModuleChange} 
+            moduleId="welcome"
             className="w3-green"
             moduleFocus={props.moduleFocus}
         >
@@ -48,22 +50,19 @@ const TopBar = (props: topBarProps) => (
             </span>
         </BarItem>
         <BarItem 
-            moduleId="browse" 
-            onClick={props.onModuleChange}    
+            moduleId="explore"
             moduleFocus={props.moduleFocus}
         >
             Explore
         </BarItem>
         <BarItem 
-            moduleId="request" 
-            onClick={props.onModuleChange}
+            moduleId="request"
             moduleFocus={props.moduleFocus}    
         >
             Request
         </BarItem>
         <BarItem 
-            moduleId="login" 
-            onClick={props.onModuleChange}
+            moduleId="login"
             className="w3-right"
             moduleFocus={props.moduleFocus}
         >

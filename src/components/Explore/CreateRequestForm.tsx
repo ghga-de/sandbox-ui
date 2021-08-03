@@ -4,7 +4,7 @@ import { hardCodedUserId } from "../../data/users";
 
 interface createRequestFormProps {
     datasetId: string,
-    onSend: () => void;
+    setReqId: (reqId: string) => void;
 }
 
 const CreateRequestForm = (props: createRequestFormProps) => {
@@ -28,14 +28,14 @@ const CreateRequestForm = (props: createRequestFormProps) => {
                 className="w3-button w3-right w3-round-xlarge w3-green"
                 style={{margin: "16px"}}
                 onClick={() => {
-                    postNewRequest(
+                    const reqId = postNewRequest(
                         {
                             datasetId: props.datasetId,
                             purpose: purpose,
                             requesterId: hardCodedUserId
                         }
                     );
-                    props.onSend()
+                    props.setReqId(reqId);
                 }}
             >
                 <i className="fas fa-key"/>&nbsp;Send Request
