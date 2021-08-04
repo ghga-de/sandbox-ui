@@ -4,9 +4,16 @@
 ARG VARIANT="16-buster"
 FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-${VARIANT}
 
-# [Optional] Uncomment this section to install additional OS packages.
-# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-#     && apt-get -y install --no-install-recommends <your-package-list-here>
+# install recent python version.
+ARG PYTHON_VERSION="3.9"
+RUN export DEBIAN_FRONTEND=noninteractive \
+    && echo "deb http://http.us.debian.org/debian/ testing non-free contrib main" >> \
+        /etc/apt/sources.list \
+    && apt update -y \
+    && apt install -y python${PYTHON_VERSION} python3-pip \
+    && update-alternatives --install /usr/bin/python python /usr/bin/python3.9 10 \
+    && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 10
+    
 
 # [Optional] Uncomment if you want to install an additional version of node using nvm
 # ARG EXTRA_NODE_VERSION=10
