@@ -5,7 +5,7 @@ import { request, requestOutline} from '../dataModels/requests'
 export const getRequestList: () => requestOutline[] = () => {
     // currently, looks up in the hardcoded requests object;
     // later, will get the info from a backend API
-    sleep(2)
+    sleep(0.25)
     return requests.map( (req) => (
             {    
                 id: req.id,
@@ -21,7 +21,7 @@ export const getReqMetadata: (reqId: string) => request = (reqId) => {
     // currently, looks up in the hardcoded datasets object;
     // later, will get the info from a backend API
     
-    sleep(2);
+    sleep(0.25);
     for (const req of requests) {
         if (req.id === reqId) {
             return req;

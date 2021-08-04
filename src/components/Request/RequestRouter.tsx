@@ -7,7 +7,6 @@ import { getRequestList } from '../../backendCalls/requests';
 import Request from "./Request";
 
 const RequestRouter = () => {
-    
     const [reqList, setReqList] = React.useState<requestOutline[]|null>(null);
 
     // on mount:
