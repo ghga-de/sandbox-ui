@@ -1,7 +1,10 @@
 #!/bin/bash
 # start web app using the development server
 
-cd /workspace
+# By changing into the `.devcontainer` dir,
+# the `.devcontainer/.sandbox-ui.config` file will be automatically
+# used as configuration source:
+cd /workspace/.devcontainer
 
 # start development server
-./configure_build_serve/run.py --dev
+../configure_build_serve/run.py --dev
