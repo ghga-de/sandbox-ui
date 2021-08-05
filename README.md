@@ -2,12 +2,64 @@
 Service that delivers a simple web app for interacting with the sandbox system
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Quick Start
+### Installation:
+To install run, please run the following:
+```
+# install the dependencies for the web app
+yarn install
 
-## Installation:
-To install run:
-`yarn install`
+# install the dependencies for our helper script:
+pip install -r ./configure_build_serve/requirements.txt
+```
 
-## Available Scripts
+### Configuration:
+The [`./example-config.yaml`](./example-config.yaml) gives an overview of the available configuration options.
+Please adapt it, rename it to `.sandbox_ui.yaml`, and place it to one of the following locations:
+- in the current working directory were you are execute the service (on unix: `./.sandbox_ui.yaml`)
+- in your home directory (on unix: `~/.sandbox_ui.yaml`)
+
+The config yaml will be automatically parsed by the service.
+
+**Important: If you are using containers, the locations refer to paths within the container.**
+
+All parameters mentioned in the [`./example-config.yaml`](./example-config.yaml)
+could also be set using environment variables or file secrets.
+
+For naming the environment variables, just prefix the parameter name with `SANDBOX_UI`,
+e.g. for the `host` set an environment variable named `SANDBOX_UI_HOST`
+(you may use both upper or lower cases, however, it is standard to define all env
+variables in upper cases).
+
+To using file secrets please refer to the
+[corresponding section](https://pydantic-docs.helpmanual.io/usage/settings/#secret-support)
+of the pydantic documentation.
+
+### Building and Serving the 
+
+We provide a utility based on python to take the configuration to build and serve the web app.
+
+(This is written in python to use the same configuration strategy that is used for all other 
+GHGA service.)
+
+Once you have your configuration (yaml, env variables, or file secretes) in place you can
+run the following:
+```
+./configure_build_serve/run.py
+```
+
+This will build and start a production ready web server.  
+  
+For development, you may use:
+```
+./configure_build_serve/run.py --dev
+```
+This will give you a development web server, that will automatically restart when the
+source code is changed. However, please don't use this server in production.
+
+
+## Advanced Scripts Available from The Create-React-App Framework
+
 
 In the project directory, you can run:
 
