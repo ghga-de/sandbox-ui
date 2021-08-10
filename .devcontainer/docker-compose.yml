@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+
+  # sandbox-ui
+
+  sandbox_ui_svc:
+    image: ghga/sandbox-ui:dev
+    environment:
+      SANDBOX_UI_HOST: 0.0.0.0
+      SANDBOX_UI_PORT: 8080
+      SANDBOX_UI_WELCOME_INFO: This web app is part of an implementation study.\nIt's not intended for production use.
+    ports:
+      - 8000:8080
+    depends_on:
+      - sandbox_metadata_svc
+
+
+  # sandbox-metadata:
+
+  sandbox_metadata_svc:
+    image: ghga/sandbox-metadata:dev
+    environment:
+      METADATA_SERVICE_HOST: 0.0.0.0
+      METADATA_SERVICE_PORT: 8080
+      METADATA_SERVICE_LOG_LEVEL: debug
+      METADATA_SERVICE_DB_URL: mongodb://sandbox_metadata_db:27017
+      METADATA_SERVICE_DB_NAME: metadata
+    ports:
+      - 8001:8080
+    depends_on:
+      - sandbox_metadata_db
+
+  sandbox_metadata_db:
+    image: mongo:4.4.6
+    volumes:
+      - sandbox_metadata_db_fs:/data/db
+    ports:
+      - 27000:27017
+
+
+volumes:
+  sandbox_metadata_db_fs: {}
