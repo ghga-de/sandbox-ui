@@ -77,7 +77,7 @@ def build():
 def serve(config: Config):
     """Serves a production ready build of the web app"""
 
-    simplelog("Making the `serve` package globally availabe:")
+    simplelog("Making the `serve` package globally available:")
     cmd_add_serve = [
         "yarn", 
         "global",
