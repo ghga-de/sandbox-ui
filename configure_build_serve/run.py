@@ -57,7 +57,7 @@ def set_react_app_env_vars(config: Config):
 
 
 def build():
-    """Builds a production read version of the web app"""
+    """Builds a production ready version of the web app"""
 
     simplelog("Executing `yarn build`")
     cmd_build = [
