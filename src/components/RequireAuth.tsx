@@ -1,13 +1,13 @@
+import Message from "./Message";
+
 const RequireAuth =  () => (
-    <div className="w3-panel w3-round-xlarge w3-orange w3-center">
-        <div className="w3-panel w3-jumbo">
-            <i className="fas fa-lock"/>
-        </div>
-        <div className="w3-panel">
-            The page you requested requires authentication.
-            Please log in first.
-        </div>
-    </div>
+    <Message
+        type="warning"
+        icon="fas fa-lock"
+    >
+        The page you requested requires authentication.
+        Please log in first.
+    </Message>
 );
 
 export default RequireAuth;

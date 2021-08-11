@@ -18,10 +18,10 @@ FROM node:16.6.0-buster
 COPY . /service
 WORKDIR /service
 
-# build the app
-RUN yarn install \
-    && yarn build \
-    && yarn global add serve
+# install dependencies
+RUN yarn install && \
+    pip install -r ./configure_build_serve/requirements.txt
+
 
 # create new user and execute as that user
 RUN useradd --create-home appuser
@@ -29,4 +29,4 @@ WORKDIR /home/appuser
 USER appuser
 
 # serve web app:
-ENTRYPOINT ["serve", "-s", "/service/build"]
+ENTRYPOINT ["/service/configure_build_serve/run.py"]

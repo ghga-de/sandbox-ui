@@ -1,8 +1,10 @@
 #!/bin/bash
-# install service in dev container
+# install web app in dev container
 
 cd /workspace
 
-# install datameta client in edit mode 
-# with testing dependencies:
-pip install -e ".[testing]"
+# install web app dependencies:
+yarn install
+
+# install helper script dependencies:
+pip install -r ./configure_build_serve/requirements.txt

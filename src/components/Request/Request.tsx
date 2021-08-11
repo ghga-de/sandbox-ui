@@ -30,7 +30,7 @@ const Request = (props: requestProps) => {
                 </div>
             ) : (
                 <div>
-                    <RequestSideBar 
+                    <RequestSideBar
                         reqList={reqList} 
                         reqFocus={props.reqFocus}
                     />
