@@ -40,7 +40,7 @@ of the pydantic documentation.
 We provide a utility based on python to take the configuration to build and serve the web app.
 
 (This is written in python to use the same configuration strategy that is used for all other 
-GHGA service.)
+GHGA services.)
 
 Once you have your configuration (yaml, env variables, or file secretes) in place you can
 run the following:
@@ -107,4 +107,3 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
