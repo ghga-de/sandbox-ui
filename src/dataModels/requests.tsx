@@ -20,10 +20,10 @@ export interface requestOutline {
     id: string;
     datasetId: string;
     status: requestStatusType;
+    requesterId: string;
 }
 
 export interface request extends requestOutline{
-    requesterId: string;
     purpose: string;
     history: requestEvent[];
 }

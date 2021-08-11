@@ -1,6 +1,7 @@
 import { file } from "../../dataModels/datasets";
 import { bytesToGB } from "../../utils/funcUtils";
 import KeyValueField from "../KeyValueField";
+import Button from "../Button";
 
 const FileAccess = (props: {file: file}) => (
     <div 
@@ -25,13 +26,14 @@ const FileAccess = (props: {file: file}) => (
                 value={bytesToGB(props.file.size)}
             />
         </div>
-        <button 
-            className="w3-bar-item w3-button w3-right w3-green"
+        <Button 
+            className="w3-right"
+            color="green"
+            icon="fa fa-download"
             onClick={() => alert("No implemented yet because of missing backend.")}    
         >
-            <i className="fa fa-download"/>&nbsp;
             download
-        </button>
+        </Button>
     </div>
 )
 

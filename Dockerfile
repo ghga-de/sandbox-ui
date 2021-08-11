@@ -22,6 +22,7 @@ WORKDIR /service
 RUN yarn install && \
     pip install -r ./configure_build_serve/requirements.txt
 
+
 # create new user and execute as that user
 RUN useradd --create-home appuser
 WORKDIR /home/appuser

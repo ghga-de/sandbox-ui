@@ -10,7 +10,8 @@ export const getRequestList: () => requestOutline[] = () => {
             {    
                 id: req.id,
                 datasetId: req.datasetId,
-                status: req.status
+                status: req.status,
+                requesterId: req.requesterId
             }
         )
     );
