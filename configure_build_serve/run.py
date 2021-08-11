@@ -88,7 +88,7 @@ def serve(config: Config):
     
     if exit_code_add_serve != 0:
         raise RuntimeError(
-            f"`yarn` ended with non-zero exit code: {exit_code_add_serve}."
+            f"`yarn` terminated with non-zero exit code: {exit_code_add_serve}."
         )
 
     simplelog("serve forever:")
