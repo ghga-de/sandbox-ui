@@ -70,7 +70,7 @@ def build():
     
     if exit_code_build != 0:
         raise RuntimeError(
-            f"`yarn` ended with non-zero exit code: {exit_code_build}."
+            f"`yarn` terminated with non-zero exit code: {exit_code_build}."
         ) 
 
 
