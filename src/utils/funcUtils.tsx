@@ -8,7 +8,7 @@ export const sleep = (secs: number) => {
 };
 
 export const bytesToGB = (bytes: number) => (
-    (bytes/10^9).toFixed(1)
+    (bytes/10**9).toFixed(2)
 );
 
 export const getCurrentUser: () => (user|undefined) = () => {
