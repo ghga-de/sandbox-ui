@@ -1,15 +1,15 @@
 import React from 'react';
 import LoadingIndicator from '../LoadingIndicator';
-import { datasetOutline } from '../../dataModels/datasets';
+import { dataset } from '../../dataModels/metadata';
 import DataSetList from './DatasetList';
 import { getAllDatasets } from "../../backendCalls/metadata";
 
 const Explore = () => {
     // list of all datasets, null if not loaded yet
-    const [dsList, setDsList] = React.useState<datasetOutline[]|null>(null);
+    const [dsList, setDsList] = React.useState<dataset[]|null>(null);
 
     // on mount:
-    React.useEffect( () => setDsList(getAllDatasets()), []);
+    React.useEffect( () => getAllDatasets(setDsList), []);
 
     return (
         <div className="w3-panel">

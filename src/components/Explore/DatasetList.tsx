@@ -1,8 +1,8 @@
-import { datasetOutline } from '../../dataModels/datasets';
+import { dataset } from '../../dataModels/metadata';
 import DataSet from './DataSet';
 
 interface dataSetListProps {
-    datasets: datasetOutline[];
+    datasets: dataset[];
 };
 
 const DataSetList = (props: dataSetListProps) => (

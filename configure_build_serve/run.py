@@ -33,8 +33,10 @@ class Config(BaseSettings):
     """Config parameters and their defaults."""
     host: str = "localhost"
     port: int = 8080
-    welcome_info: Optional[str]
-
+    welcome_info: Optional[str] = None
+    
+    svc_metadata_url: str
+    
 
 def simplelog(text: str):
     print(f"\n>>> {text}\n")

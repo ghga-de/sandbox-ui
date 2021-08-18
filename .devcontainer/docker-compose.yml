@@ -26,6 +26,20 @@ services:
       METADATA_SERVICE_LOG_LEVEL: debug
       METADATA_SERVICE_DB_URL: mongodb://sandbox_metadata_db:27017
       METADATA_SERVICE_DB_NAME: metadata
+    entrypoint: ["/bin/bash", "-c"]
+    command: |
+      """
+      # install additional deps as they are needed for the population script;
+      cd /service
+      pip install ".[all]"
+
+      # pre-populate the database via the API:
+      # (wait for the API to come up)
+      ( sleep 2 && /service/scripts/populate_metadata_store.py --base-url http://localhost:8080 ) &
+
+      # run the service:
+      metadata-service
+      """
     ports:
       - 8001:8080
     depends_on:

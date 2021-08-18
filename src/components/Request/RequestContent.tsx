@@ -3,7 +3,7 @@ import { getReqMetadata } from "../../backendCalls/requests";
 import { request } from "../../dataModels/requests";
 import Badge from "../Badge";
 import LoadingIndicator from "../LoadingIndicator";
-import FileAccessList from "./FileAccessList";
+// import FileAccessList from "./FileAccessList";
 
 interface requestContentProps {
     requestId: string;
@@ -63,7 +63,7 @@ const RequestContent = (props: requestContentProps) => {
                             {reqMetadata.status === "approved" && (
                                 <div>
                                     <hr/>
-                                    <FileAccessList datasetId={reqMetadata.datasetId} />
+                                    {/* <FileAccessList datasetId={reqMetadata.datasetId} /> */}
                                 </div>
                             )}
                         </div>

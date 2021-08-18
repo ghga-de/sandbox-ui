@@ -1,42 +1,24 @@
 import { sleep } from '../utils/funcUtils';
-import datasets from '../data/datasets';
-import { dataset, datasetOutline, file } from '../dataModels/datasets';
+import { dataset } from '../dataModels/metadata';
 
-export const getDsMetadata: (dsId: string) => dataset = (dsId) => {
-    // currently, looks up in the hardcoded datasets object;
-    // later, will get the info from a backend API
-    
-    sleep(0.25);
-    let metadata: dataset;
-    for (const ds of datasets) {
-        if (ds.id === dsId) {
-            metadata = ds;
+type getAllDatasetsType = (
+    callbackFunc: (dataset: dataset[]) => void
+) => void;
+
+export const getAllDatasets: getAllDatasetsType = (callbackFunc) => {
+    fetch(
+        `${process.env.REACT_APP_SVC_METADATA_URL}/datasets`, 
+        {
+            method: 'get'
         }
-    };
-
-    // @ts-ignore
-    return metadata;
-};
-
-
-export const getAllDatasets: () => datasetOutline[] = () => {
-    // currently, looks up in the hardcoded datasets object;
-    // later, will get the info from a backend API
-    sleep(0.25)
-    return datasets.map( (ds) => (
-            {    
-                id: ds.id,
-                studyId: ds.study.id,
-                studyTitle: ds.study.title
-            }
-        )
+    )
+    .then( response => response.json())
+    .then(
+        (data) => {
+            callbackFunc(data);
+        },
+        (error) => {
+            alert("An error occured while fetching the data.");
+        }
     );
-};
-
-
-export const getFileListByDsId: (dsId: string) => file[] = (dsId) => {
-    const dataset = getDsMetadata(dsId);
-    return dataset.samples.map( (sample) => (
-        sample.files
-    )).flat(2);
 };
