@@ -29,6 +29,11 @@ RUN export DEBIAN_FRONTEND=noninteractive \
 COPY . /service
 WORKDIR /service
 
+# create new user and execute as that user
+RUN useradd --create-home appuser
+WORKDIR /home/appuser
+USER appuser
+
 # install dependencies
 RUN yarn install \
     && python3.9 -m pip install -r ./configure_build_serve/requirements.txt
