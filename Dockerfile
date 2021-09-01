@@ -38,5 +38,9 @@ USER appuser
 RUN yarn install \
     && python3.9 -m pip install -r ./configure_build_serve/requirements.txt
 
+USER node
+
 # serve web app:
 ENTRYPOINT ["/service/configure_build_serve/run.py"]
+
+USER node
