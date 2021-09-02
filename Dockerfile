@@ -18,7 +18,7 @@ FROM node:16.6.0-buster
 # install python:
 ARG PYTHON_VERSION="3.9"
 RUN export DEBIAN_FRONTEND=noninteractive \
-    && echo "deb http://http.us.debian.org/debian/ testing non-free contrib main" >> \
+    && echo "deb http://http.us.debian.org/debian/ stable main contrib" >> \
         /etc/apt/sources.list \
     && apt update -y \
     && apt install -y python${PYTHON_VERSION} python3-pip \
@@ -29,18 +29,14 @@ RUN export DEBIAN_FRONTEND=noninteractive \
 COPY . /service
 WORKDIR /service
 
-# create new user and execute as that user
-RUN useradd --create-home appuser
-WORKDIR /home/appuser
-USER appuser
+# # create new user and execute as that user
+# RUN useradd --create-home appuser && chown -R appuser:appuser /service
+# WORKDIR /home/appuser
+# USER appuser
 
 # install dependencies
-RUN yarn install \
-    && python3.9 -m pip install -r ./configure_build_serve/requirements.txt
-
-USER node
+RUN yarn install && npm install serve \
+     && python3.9 -m pip install -r /service/configure_build_serve/requirements.txt
 
 # serve web app:
 ENTRYPOINT ["/service/configure_build_serve/run.py"]
-
-USER node
