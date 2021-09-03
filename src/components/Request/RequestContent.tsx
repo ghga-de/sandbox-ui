@@ -1,8 +1,12 @@
 import React from "react";
 import { getReqMetadata } from "../../backendCalls/requests";
 import { request } from "../../dataModels/requests";
-import Badge from "../Badge";
+import RequestInfo from "./RequestInfo";
 import LoadingIndicator from "../LoadingIndicator";
+import FileAccessList from "./FileAccessList";
+import RequestHistory from "./RequestHistory";
+import { getCurrentUser } from "../../utils/funcUtils";
+import RequestControl from "./RequestControl";
 // import FileAccessList from "./FileAccessList";
 
 interface requestContentProps {
@@ -10,6 +14,7 @@ interface requestContentProps {
 };
 
 const RequestContent = (props: requestContentProps) => {
+    const currentUser = getCurrentUser();
     const [reqMetadata, setReqMetadata] = React.useState<request|null>(null);
 
     // on mount:
@@ -30,42 +35,21 @@ const RequestContent = (props: requestContentProps) => {
                         />
                     ) : (
                         <div className="w3-center">
-                            <div>
-                                <Badge key_="dataset" value={reqMetadata.datasetId}/>
-                                <Badge key_="status" value={reqMetadata.status}/>
-                                <Badge key_="Requestor" value={reqMetadata.requesterId}/>
-                            </div>
-                            <div className="w3-panel">
-                                <span className="w3-text-green w3-large">Purpose:</span>
-                                <br/>
-                                {reqMetadata.purpose}
-                            </div>
-                            <div className="w3-panel">
-                                <hr/>
-                                <span className="w3-text-green w3-large">History:</span>
-                                <br/>
-                                {reqMetadata.history
-                                    .sort((a,b) => (a.datetime > b.datetime) ? 1 : -1)
-                                    .map( (event) => (
-                                        <div 
-                                            className="w3-panel"
-                                            key={event.datetime.toUTCString()}
-                                        >
-                                            <span className="w3-text-green w3-small">
-                                                {event.datetime.toLocaleTimeString("de")}&nbsp;-&nbsp;
-                                                {event.datetime.toLocaleDateString("de")}
-                                            </span><br/>
-                                            <span>request {event.eventType}</span>
-                                        </div>
-                                    ))
-                                }
-                            </div>
-                            {reqMetadata.status === "approved" && (
+                            <RequestInfo reqMetadata={reqMetadata} />
+                            <hr/>
+                            <RequestHistory reqMetadata={reqMetadata} />
+                            {(currentUser && currentUser.isDataSteward && reqMetadata.status === "pending") ? (
                                 <div>
                                     <hr/>
-                                    {/* <FileAccessList datasetId={reqMetadata.datasetId} /> */}
+                                    <RequestControl datasetId={reqMetadata.datasetId} />
                                 </div>
-                            )}
+                            ) : (
+                                reqMetadata.status === "approved" && (
+                                    <div>
+                                        <hr/>
+                                        {/* <FileAccessList datasetId={reqMetadata.datasetId} /> */}
+                                    </div>
+                            ))}
                         </div>
                 )}
                 

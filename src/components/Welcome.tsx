@@ -11,7 +11,7 @@ const WelcomeModule = () => (
         <h4 className="w3-text-green">
             Explore. Extract. Experiment.
         </h4>
-        
+
         {process.env.REACT_APP_WELCOME_INFO && (
             // the above env var can be used to insert
             // a custom message to the welcome page:

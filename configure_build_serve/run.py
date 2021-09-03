@@ -33,10 +33,8 @@ class Config(BaseSettings):
     """Config parameters and their defaults."""
     host: str = "localhost"
     port: int = 8080
-    welcome_info: Optional[str] = None
-    
-    svc_metadata_url: str
-    
+    welcome_info: Optional[str]
+
 
 def simplelog(text: str):
     print(f"\n>>> {text}\n")
@@ -59,7 +57,7 @@ def set_react_app_env_vars(config: Config):
 
 
 def build():
-    """Builds a production read version of the web app"""
+    """Builds a production ready version of the web app"""
 
     simplelog("Executing `yarn build`")
     cmd_build = [
@@ -72,14 +70,14 @@ def build():
     
     if exit_code_build != 0:
         raise RuntimeError(
-            f"`yarn` ended with non-zero exit code: {exit_code_build}."
+            f"`yarn` terminated with non-zero exit code: {exit_code_build}."
         ) 
 
 
 def serve(config: Config):
     """Serves a production ready build of the web app"""
 
-    simplelog("Making the `serve` package globally availabe:")
+    simplelog("Making the `serve` package globally available:")
     cmd_add_serve = [
         "yarn", 
         "global",
@@ -90,7 +88,7 @@ def serve(config: Config):
     
     if exit_code_add_serve != 0:
         raise RuntimeError(
-            f"`yarn` ended with non-zero exit code: {exit_code_add_serve}."
+            f"`yarn` terminated with non-zero exit code: {exit_code_add_serve}."
         )
 
     simplelog("serve forever:")
