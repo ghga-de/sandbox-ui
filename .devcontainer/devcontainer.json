@@ -1,15 +1,26 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.178.0/containers/typescript-node
 {
-	"name": "Node.js & TypeScript",
-	"build": {
-		"dockerfile": "Dockerfile",
-		// Update 'VARIANT' to pick a Node version: 12, 14, 16
-		"args": { 
-			"VARIANT": "16"
+	"name": "Python 3",
 
-		}
-	},
+	"dockerComposeFile": [
+		// the main compose file containing all sandbox services,
+		// this file is obtained from an external repository
+		// (https://github.com/ghga-de/sandbox-dev-service-compose),
+		// to update please run `./update_main_compose_yml.sh`:
+		"docker-compose.yml",
+
+		// a compose file that overwrite the ui service for development:
+		"docker-compose.override.yml"
+	],
+
+	// The 'service' property is the name of the service for the container that VS Code should
+	// use. Update this value and .devcontainer/docker-compose.yml to the real service name.
+	"service": "sandbox_ui_svc",
+
+	// The optional 'workspaceFolder' property is the path VS Code should open by default when
+	// connected. This is typically a file mount in .devcontainer/docker-compose.yml
+	"workspaceFolder": "/workspace",
 
 	// workspace is mounted to /workspace:
 	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",

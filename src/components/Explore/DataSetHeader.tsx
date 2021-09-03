@@ -1,7 +1,7 @@
-import { datasetOutline } from '../../dataModels/datasets';
+import { dataset } from '../../dataModels/metadata';
 import '../components.css';
 
-const DataSetHeader = (props: {dataset: datasetOutline}) => (
+const DataSetHeader = (props: {dataset: dataset}) => (
     <div 
         className="w3-bar w3-round-xlarge w3-hover-light-grey interactive-item-header"
     >   
@@ -17,7 +17,7 @@ const DataSetHeader = (props: {dataset: datasetOutline}) => (
                     <td className="w3-text-green">
                         Study ID:
                     </td>
-                    <td>{props.dataset.studyId}</td>
+                    <td>{props.dataset.has_study}</td>
                 </tr>
             </tbody></table>
         </div>
@@ -27,7 +27,17 @@ const DataSetHeader = (props: {dataset: datasetOutline}) => (
                     <td className="w3-text-green">
                         Title:
                     </td>
-                    <td>{props.dataset.studyTitle}</td>
+                    <td>{props.dataset.title}</td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div className="w3-bar-item">
+            <table><tbody>
+                <tr>
+                    <td className="w3-text-green">
+                        Description:
+                    </td>
+                    <td>{props.dataset.description}</td>
                 </tr>
             </tbody></table>
         </div>

@@ -35,6 +35,7 @@ class Config(BaseSettings):
     port: int = 8080
     welcome_info: Optional[str]
 
+    svc_metadata_url: str
 
 def simplelog(text: str):
     print(f"\n>>> {text}\n")
