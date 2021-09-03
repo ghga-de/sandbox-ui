@@ -1,5 +1,5 @@
 host: localhost
-port: 8080sdaf
+port: 8080
 welcome_info: |
   This web app is part of an implementation study.
   It only contains basic functionalities and shouldn't be used
