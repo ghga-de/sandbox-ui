@@ -34,8 +34,9 @@ class Config(BaseSettings):
     host: str = "localhost"
     port: int = 8080
     welcome_info: Optional[str]
-
-    svc_metadata_url: str
+    svc_metadata_url: str = "https://sandbox.api.ghga-dev.de/metadata"
+    svc_request_url: str = "https://sandbox.api.ghga-dev.de/request"
+    svc_storage_url: str = "https://sandbox.api.ghga-dev.de/storage"
 
 def simplelog(text: str):
     print(f"\n>>> {text}\n")
