@@ -5,7 +5,7 @@
 # from an external repo.
 
 DIR_OF_THIS_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SOURCE_URL=https://raw.githubusercontent.com/ghga-de/sandbox-dev-service-compose/feature/configure-cors/docker-compose.yml
+SOURCE_URL=https://raw.githubusercontent.com/ghga-de/sandbox-dev-service-compose/main/docker-compose.yml
 TARGET_PATH="${DIR_OF_THIS_SCRIPT}/docker-compose.yml"
 
 wget \
