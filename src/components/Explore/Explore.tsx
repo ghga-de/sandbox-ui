@@ -1,12 +1,12 @@
 import React from 'react';
 import LoadingIndicator from '../LoadingIndicator';
-import { dataset } from '../../dataModels/metadata';
+import { datasetModel } from '../../dataModels/metadata';
 import DataSetList from './DatasetList';
 import { getAllDatasets } from "../../backendCalls/metadata";
 
 const Explore = () => {
     // list of all datasets, null if not loaded yet
-    const [dsList, setDsList] = React.useState<dataset[]|null>(null);
+    const [dsList, setDsList] = React.useState<datasetModel[]|null>(null);
 
     // on mount:
     React.useEffect( () => getAllDatasets(setDsList), []);

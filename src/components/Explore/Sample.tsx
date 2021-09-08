@@ -1,8 +1,8 @@
-// import { sample } from '../../dataModels/metadata';
+// import { sampleModel } from '../../dataModels/metadata';
 // import { bytesToGB } from '../../utils/funcUtils';
 // import KeyValueField from '../KeyValueField';
 
-// const Sample = (props: {sample: sample}) => (
+// const Sample = (props: {sampleModel: sample}) => (
 //     <div key={props.sample.id} className="w3-panel">
 //         <div className="w3-bar">
 //             <div className="w3-bar-item">

@@ -1,8 +1,7 @@
-import { sleep } from '../utils/funcUtils';
-import { dataset } from '../dataModels/metadata';
+import { datasetModel } from '../dataModels/metadata';
 
 type getAllDatasetsType = (
-    callbackFunc: (dataset: dataset[]) => void
+    callbackFunc: (dataset: datasetModel[]) => void
 ) => void;
 
 export const getAllDatasets: getAllDatasetsType = (callbackFunc) => {

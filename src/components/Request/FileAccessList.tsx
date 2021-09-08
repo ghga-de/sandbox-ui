@@ -1,11 +1,11 @@
 // import React from "react";
-// import { file } from "../../dataModels/metadata";
+// import { fileModel } from "../../dataModels/metadata";
 // import { getFileListByDsId } from "../../backendCalls/metadata";
 // import LoadingIndicator from "../LoadingIndicator";
 // import FileAccess from "./FileAccess";
 
 // const FileAccessList = (props: {datasetId: string}) => {
-//     const [fileList, setFileList] = React.useState<file[]|null>(null);
+//     const [fileList, setFileList] = React.useState<fileModel[]|null>(null);
 
 //     // on mount:
 //     React.useEffect( () => setFileList(getFileListByDsId(props.datasetId)), []);

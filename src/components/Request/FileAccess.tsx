@@ -1,8 +1,8 @@
-import { file } from "../../dataModels/metadata";
+import { fileModel } from "../../dataModels/metadata";
 import { bytesToGB } from "../../utils/funcUtils";
 import KeyValueField from "../KeyValueField";
 
-const FileAccess = (props: {file: file}) => (
+const FileAccess = (props: {file: fileModel}) => (
     <div 
         className="w3-bar w3-round-xlarge w3-hover-light-grey interactive-item-header"
         style={{width: "100%"}}

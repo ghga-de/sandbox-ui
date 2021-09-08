@@ -1,36 +1,27 @@
-import { sleep } from '../utils/funcUtils';
-import requests from '../data/requests';
-import { request, requestOutline} from '../dataModels/requests'
+import { requestModel } from '../dataModels/requests'
 
-export const getRequestList: () => requestOutline[] = () => {
-    // currently, looks up in the hardcoded requests object;
-    // later, will get the info from a backend API
-    sleep(0.25)
-    return requests.map( (req) => (
-            {    
-                id: req.id,
-                datasetId: req.datasetId,
-                status: req.status,
-                requesterId: req.requesterId
-            }
-        )
-    );
-}
+type getAllRequestsType = (
+    callbackFunc: (request: requestModel[]) => void
+) => void;
 
-
-export const getReqMetadata: (reqId: string) => request = (reqId) => {
-    // currently, looks up in the hardcoded datasets object;
-    // later, will get the info from a backend API
-    
-    sleep(0.25);
-    for (const req of requests) {
-        if (req.id === reqId) {
-            return req;
+export const getAllRequests: getAllRequestsType = (callbackFunc) => {
+    fetch(
+        `${process.env.REACT_APP_SVC_REQUEST_URL}/requests`, 
+        {
+            method: 'get'
         }
-    };
-
-    throw new Error("Request with id " + reqId + " does not exist.");
+    )
+    .then( response => response.json())
+    .then(
+        (data) => {
+            callbackFunc(data);
+        },
+        (error) => {
+            alert("An error occured while fetching the data.");
+        }
+    );
 };
+
 
 
 interface newRequestModel {
@@ -41,21 +32,15 @@ interface newRequestModel {
 
 export const postNewRequest: (newRequest: newRequestModel) => string = (newRequest) => {
     
-    const reqObj: request= {
+    const reqObj: requestModel = {
         id: "GHGAR-" + Math.round(Math.random()*1000000000).toString(),
         datasetId: newRequest.datasetId,
         status: "pending",
         requesterId: newRequest.requesterId,
-        purpose: newRequest.purpose,
-        history: [
-            {
-                eventType: "created",
-                datetime: new Date()
-            }
-        ]
+        purpose: newRequest.purpose
     }
 
-    requests.push(reqObj);
+    // requests.push(reqObj);
 
     return reqObj.id
 }

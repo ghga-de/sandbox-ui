@@ -1,9 +1,9 @@
 // This module contains hardcoded metadata on users
 // Later this will be served by the backend
 
-import { user } from "../dataModels/users"
+import { userModel } from "../dataModels/users"
 
-export const users: user[] = [
+export const users: userModel[] = [
     {
         id: "GHGAU-812092343",
         firstName: "Carry",

@@ -1,11 +1,11 @@
 import '../components.css';
 import { Link } from 'react-router-dom';
-import { requestOutline } from "../../dataModels/requests";
+import { requestModel } from "../../dataModels/requests";
 import KeyValueField from "../KeyValueField";
 
 
 interface requestSideBarProps {
-    reqList: requestOutline[];
+    reqList: requestModel[];
     reqFocus?: string;
 }
 

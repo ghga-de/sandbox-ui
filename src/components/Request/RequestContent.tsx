@@ -1,24 +1,18 @@
 import React from "react";
-import { getReqMetadata } from "../../backendCalls/requests";
-import { request } from "../../dataModels/requests";
+import { requestModel } from "../../dataModels/requests";
 import RequestInfo from "./RequestInfo";
 import LoadingIndicator from "../LoadingIndicator";
 import FileAccess from "./FileAccess";
-import RequestHistory from "./RequestHistory";
 import { getCurrentUser } from "../../utils/funcUtils";
 import RequestControl from "./RequestControl";
 // import FileAccessList from "./FileAccessList";
 
 interface requestContentProps {
-    requestId: string;
+    request: requestModel;
 };
 
 const RequestContent = (props: requestContentProps) => {
     const currentUser = getCurrentUser();
-    const [reqMetadata, setReqMetadata] = React.useState<request|null>(null);
-
-    // on mount:
-    React.useEffect( () => setReqMetadata(getReqMetadata(props.requestId)), []);
 
     return (
         <div className="w3-panel">
@@ -26,28 +20,26 @@ const RequestContent = (props: requestContentProps) => {
             <div>
                 <h3 className="w3-center">
                     <span className="w3-text-green">Request:</span>&nbsp;
-                    {props.requestId}
+                    {props.request.id}
                 </h3>
-                {reqMetadata == null ? (
+                {props.request == null ? (
                         <LoadingIndicator 
                             size="large"
                             message="Simulated loading of request metadata..."
                         />
                     ) : (
                         <div className="w3-center">
-                            <RequestInfo reqMetadata={reqMetadata} />
-                            <hr/>
-                            <RequestHistory reqMetadata={reqMetadata} />
-                            {(currentUser && currentUser.isDataSteward && reqMetadata.status === "pending") ? (
+                            <RequestInfo request={props.request} />
+                            {(currentUser && currentUser.isDataSteward && props.request.status === "pending") ? (
                                 <div>
                                     <hr/>
-                                    <RequestControl datasetId={reqMetadata.datasetId} />
+                                    <RequestControl datasetId={props.request.datasetId} />
                                 </div>
                             ) : (
-                                reqMetadata.status === "approved" && (
+                                props.request.status === "approved" && (
                                     <div>
                                         <hr/>
-                                        {/* <FileAccessList datasetId={reqMetadata.datasetId} /> */}
+                                        {/* <FileAccessList datasetId={request.datasetId} /> */}
                                     </div>
                             ))}
                         </div>

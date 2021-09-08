@@ -1,9 +1,9 @@
-import { user } from '../../dataModels/users';
+import { userModel } from '../../dataModels/users';
 import { loginUser } from '../../utils/funcUtils';
 import KeyValueField from '../KeyValueField';
 
 interface userItemProps {
-    user: user;
+    user: userModel;
     hasFocus: boolean;
 }
 

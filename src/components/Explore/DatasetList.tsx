@@ -1,8 +1,8 @@
-import { dataset } from '../../dataModels/metadata';
+import { datasetModel } from '../../dataModels/metadata';
 import DataSet from './DataSet';
 
 interface dataSetListProps {
-    datasets: dataset[];
+    datasets: datasetModel[];
 };
 
 const DataSetList = (props: dataSetListProps) => (

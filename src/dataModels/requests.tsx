@@ -11,19 +11,10 @@ export type requestStatusType = (
     "closed"
 )
 
-export interface requestEvent {
-    eventType: requestEventType;
-    datetime: Date;
-}
-
-export interface requestOutline {
+export interface requestModel {
     id: string;
     datasetId: string;
     status: requestStatusType;
     requesterId: string;
-}
-
-export interface request extends requestOutline{
     purpose: string;
-    history: requestEvent[];
 }

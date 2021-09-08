@@ -1,10 +1,10 @@
-import { requestOutline } from "../../dataModels/requests";
+import { requestModel } from "../../dataModels/requests";
 import RequestSideBar from './RequestSideBar';
 import RequestContent from './RequestContent';
 import { getCurrentUser } from "../../utils/funcUtils";
 
 interface requestProps {
-    reqList: requestOutline[];
+    reqList: requestModel[];
     reqFocus?: string;
 };
 
@@ -18,7 +18,13 @@ const Request = (props: requestProps) => {
     ) : (
         props.reqList
     )
-
+    
+    // find request that is focussed:
+    const focussedRequest = reqList.filter( req => req.id === props.reqFocus )[0]
+    if (focussedRequest === undefined) {
+        throw `Request with id "${props.reqFocus}" was not found.`
+    }
+    
     return (
         <div>
             {reqList.length === 0 ? (
@@ -41,7 +47,7 @@ const Request = (props: requestProps) => {
                                     Please select a request from the left.
                                 </div>
                             ) : (
-                                <RequestContent key={"reqContent-" + props.reqFocus} requestId={props.reqFocus}/>
+                                <RequestContent key={"reqContent-" + props.reqFocus} request={focussedRequest}/>
                         )}
                     </div>
                 </div>

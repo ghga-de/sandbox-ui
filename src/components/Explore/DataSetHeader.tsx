@@ -1,7 +1,7 @@
-import { dataset } from '../../dataModels/metadata';
+import { datasetModel } from '../../dataModels/metadata';
 import '../components.css';
 
-const DataSetHeader = (props: {dataset: dataset}) => (
+const DataSetHeader = (props: {dataset: datasetModel}) => (
     <div 
         className="w3-bar w3-round-xlarge w3-hover-light-grey interactive-item-header"
     >   
