@@ -1,4 +1,4 @@
-import { requestModel } from '../dataModels/requests'
+import { requestInitModel, requestModel } from '../dataModels/requests'
 
 export type setRequestCallbackType = (request: requestModel[]) => void
 
@@ -33,7 +33,6 @@ export const updateRequestStatus: updateRequestStatusInterface = (requestId, new
     const updateRequest = {
         "status": newStatus
     }
-    console.log(JSON.stringify(updateRequest))
 
     fetch(
         `${process.env.REACT_APP_SVC_REQUEST_URL}/requests/${requestId}`, 
@@ -56,22 +55,39 @@ export const updateRequestStatus: updateRequestStatusInterface = (requestId, new
 
 
 interface newRequestModel {
-    dataset_id: string;
+    datasetId: string;
     purpose: string;
-    requesterId: string;
+    userId: string;
 };
 
-export const postNewRequest: (newRequest: newRequestModel) => string = (newRequest) => {
+type postNewRequestType = (
+    newRequest: newRequestModel,
+    callbackFunc: (requestId: string) => void    
+) => void
+
+export const postNewRequest: postNewRequestType = (newRequest, callbackFunc) => {
     
-    const reqObj: requestModel = {
-        id: "GHGAR-" + Math.round(Math.random()*1000000000).toString(),
-        dataset_id: newRequest.dataset_id,
-        status: "pending",
-        user_id: newRequest.requesterId,
+    const requestObj: requestInitModel = {
+        dataset_id: newRequest.datasetId,
+        user_id: newRequest.userId,
         purpose: newRequest.purpose
     }
 
-    // requests.push(reqObj);
-
-    return reqObj.id
+    fetch(
+        `${process.env.REACT_APP_SVC_REQUEST_URL}/requests`, 
+        {
+            method: 'POST',
+            body: JSON.stringify(requestObj),
+            headers: new Headers({'Content-Type': 'application/json'})
+        }
+    )
+    .then( response => response.json())
+    .then(
+        (data) => {
+            callbackFunc(data.id)
+        },
+        (error) => {
+            alert("An error occured while fetching the data.");
+        }
+    );
 }
