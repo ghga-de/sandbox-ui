@@ -208,9 +208,9 @@ services:
       pip install ".[all]"
 
       # pre-populate the database:
-      # /service/scripts/populate_db.py \
-      #   --db-url "$${SANDBOX_REQUEST_DB_URL}" \
-      #   --db-name "$${SANDBOX_REQUEST_DB_NAME}"
+      /service/scripts/populate_db.py \
+        --db-url "$${SANDBOX_REQUEST_DB_URL}" \
+        --db-name "$${SANDBOX_REQUEST_DB_NAME}"
 
       # run the service:
       sandbox-request async-api
