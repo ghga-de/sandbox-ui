@@ -131,7 +131,7 @@ def dev_serve(config: Config):
     exit_code_start = Popen(cmd_start).wait()
     
     raise RuntimeError(
-        f"Serving of app was interupted: {exit_code_serve}."
+        f"Serving of app was interupted: {exit_code_start}."
     )
 
 
