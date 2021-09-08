@@ -34,6 +34,10 @@ services:
     environment:
       SANDBOX_METADATA_HOST: 0.0.0.0
       SANDBOX_METADATA_PORT: 8080
+      SANDBOX_METADATA_CORS_ALLOWED_ORIGINS: '["*"]'
+      SANDBOX_METADATA_CORS_ALLOW_CREDENTIALS: "true"
+      SANDBOX_METADATA_CORS_ALLOWED_METHODS: '["*"]'
+      SANDBOX_METADATA_CORS_ALLOWED_HEADERS: '["*"]'
       SANDBOX_METADATA_LOG_LEVEL: debug
       SANDBOX_METADATA_DB_URL: mongodb://sandbox_metadata_db:27017
       SANDBOX_METADATA_DB_NAME: metadata
@@ -80,6 +84,10 @@ services:
       SANDBOX_STORAGE_HOST: 0.0.0.0
       SANDBOX_STORAGE_PORT: 8080
       SANDBOX_STORAGE_log_level: debug
+      SANDBOX_STORAGE_CORS_ALLOWED_ORIGINS: '["*"]'
+      SANDBOX_STORAGE_CORS_ALLOW_CREDENTIALS: "true"
+      SANDBOX_STORAGE_CORS_ALLOWED_METHODS: '["*"]'
+      SANDBOX_STORAGE_CORS_ALLOWED_HEADERS: '["*"]'
       SANDBOX_STORAGE_DB_PATH: postgresql://admin:admin@sandbox_storage_svc_db/storage
       DB_URL: postgresql://admin:admin@sandbox_storage_svc_db/storage
       SANDBOX_STORAGE_S3_PATH: http://sandbox_storage_svc_s3:4566
@@ -158,6 +166,10 @@ services:
       SANDBOX_REQUEST_HOST: 0.0.0.0
       SANDBOX_REQUEST_PORT: 8080
       SANDBOX_REQUEST_LOG_LEVEL: debug
+      SANDBOX_REQUEST_CORS_ALLOWED_ORIGINS: '["*"]'
+      SANDBOX_REQUEST_CORS_ALLOW_CREDENTIALS: "true"
+      SANDBOX_REQUEST_CORS_ALLOWED_METHODS: '["*"]'
+      SANDBOX_REQUEST_CORS_ALLOWED_HEADERS: '["*"]'
       SANDBOX_REQUEST_DB_URL: mongodb://sandbox_request_db:27017
       SANDBOX_REQUEST_DB_NAME: request
       SANDBOX_REQUEST_SVC_METADATA_URL: http://sandbox_metadata_svc:8080
@@ -219,3 +231,4 @@ volumes:
   sandbox_storage_db_fs: {}
   sandbox_storage_s3_fs: {}
   sandbox_request_db_fs: {}
+
