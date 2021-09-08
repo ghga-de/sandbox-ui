@@ -1,20 +1,13 @@
-export type requestEventType = (
-    "created" |
-    "approved" |
-    "declined" |
-    "withdrawn"
-)
-
 export type requestStatusType = (
     "pending" |
     "approved" |
-    "closed"
+    "rejected"
 )
 
 export interface requestModel {
     id: string;
-    datasetId: string;
+    dataset_id: string;
     status: requestStatusType;
-    requesterId: string;
+    user_id: string;
     purpose: string;
 }

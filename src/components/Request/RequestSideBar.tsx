@@ -33,7 +33,7 @@ const RequestSideBar = (props: requestSideBarProps) =>  (
                         style={{marginBottom: "8px"}}
                     >
                         <KeyValueField key_="ID" value={req.id}/>
-                        <KeyValueField key_="Dataset" value={req.datasetId}/>
+                        <KeyValueField key_="Dataset" value={req.dataset_id}/>
                         <KeyValueField key_="Status" value={req.status}/>
                     </button>
                 </Link>

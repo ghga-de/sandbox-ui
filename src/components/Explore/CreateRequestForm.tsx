@@ -42,7 +42,7 @@ const CreateRequestForm = (props: createRequestFormProps) => {
                         } else {
                             const reqId = postNewRequest(
                                 {
-                                    datasetId: props.datasetId,
+                                    dataset_id: props.datasetId,
                                     purpose: purpose,
                                     requesterId: currentUser.id
                                 }

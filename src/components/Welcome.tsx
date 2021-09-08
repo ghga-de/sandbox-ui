@@ -1,6 +1,5 @@
 import logoFull from '../logo_full.png';
 import Message from './Message';
-import Test from './Test';
 
 const WelcomeModule = () => (
     <div className="w3-panel w3-center">
@@ -22,7 +21,6 @@ const WelcomeModule = () => (
                 </Message>
             </div>
         )}
-        <Test/>
 
     </div>
 );

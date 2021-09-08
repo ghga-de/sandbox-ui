@@ -12,7 +12,7 @@ const RequestRouter = () => {
     // on mount:
     React.useEffect( () => getAllRequests(setReqList), []);
 
-    return reqList == null ? (
+    return reqList == null || reqList.length === 0 ? (
         <LoadingIndicator 
             size="large"
             message="Simulated loading of a list of all requests..."

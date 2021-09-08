@@ -5,14 +5,14 @@ import { userModel } from "../dataModels/users"
 
 export const users: userModel[] = [
     {
-        id: "GHGAU-812092343",
+        id: "USR:0000001",
         firstName: "Carry",
         lastName: "Catfish",
         isDataSteward: false,
         icon: "fas fa-user-graduate"
     },
     {
-        id: "GHGAU-99812812",
+        id: "USR:0000002",
         firstName: "Mike",
         lastName: "Mushroom",
         isDataSteward: true,

@@ -14,14 +14,14 @@ const Request = (props: requestProps) => {
     // if currentUser is not a data steward,
     // only show the requests of that user:
     const reqList = (currentUser && !currentUser.isDataSteward) ? (
-        props.reqList.filter( (req) => req.requesterId === currentUser.id)
+        props.reqList.filter( (req) => req.user_id === currentUser.id)
     ) : (
         props.reqList
     )
     
     // find request that is focussed:
     const focussedRequest = reqList.filter( req => req.id === props.reqFocus )[0]
-    if (focussedRequest === undefined) {
+    if (props.reqFocus != null && focussedRequest === undefined) {
         throw `Request with id "${props.reqFocus}" was not found.`
     }
     
@@ -47,7 +47,9 @@ const Request = (props: requestProps) => {
                                     Please select a request from the left.
                                 </div>
                             ) : (
-                                <RequestContent key={"reqContent-" + props.reqFocus} request={focussedRequest}/>
+                                <RequestContent
+                                    request={focussedRequest}
+                                />
                         )}
                     </div>
                 </div>

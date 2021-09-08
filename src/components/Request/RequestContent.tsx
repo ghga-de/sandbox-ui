@@ -8,7 +8,7 @@ import RequestControl from "./RequestControl";
 // import FileAccessList from "./FileAccessList";
 
 interface requestContentProps {
-    request: requestModel;
+    request: requestModel
 };
 
 const RequestContent = (props: requestContentProps) => {
@@ -30,10 +30,13 @@ const RequestContent = (props: requestContentProps) => {
                     ) : (
                         <div className="w3-center">
                             <RequestInfo request={props.request} />
-                            {(currentUser && currentUser.isDataSteward && props.request.status === "pending") ? (
+                            {(currentUser && currentUser.isDataSteward) ? (
                                 <div>
                                     <hr/>
-                                    <RequestControl datasetId={props.request.datasetId} />
+                                    <RequestControl 
+                                        requestId={props.request.id}
+                                        requestStatus={props.request.status}
+                                    />
                                 </div>
                             ) : (
                                 props.request.status === "approved" && (
