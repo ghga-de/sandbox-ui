@@ -5,7 +5,7 @@ import LoadingIndicator from "../LoadingIndicator";
 import FileAccess from "./FileAccess";
 import { getCurrentUser } from "../../utils/funcUtils";
 import RequestControl from "./RequestControl";
-// import FileAccessList from "./FileAccessList";
+import FileAccessList from "./FileAccessList";
 
 interface requestContentProps {
     request: requestModel
@@ -42,7 +42,7 @@ const RequestContent = (props: requestContentProps) => {
                                 props.request.status === "approved" && (
                                     <div>
                                         <hr/>
-                                        {/* <FileAccessList datasetId={request.datasetId} /> */}
+                                        <FileAccessList datasetId={props.request.dataset_id} />
                                     </div>
                             ))}
                         </div>
