@@ -2,7 +2,7 @@ import '../components.css';
 import React from 'react';
 import { datasetModel } from '../../dataModels/metadata';
 import DataSetHeader from './DataSetHeader';
-// import DataSetMetadata from './DataSetMetadata';
+import DataSetDetails from './DataSetDetails';
 import RequestAccess from './RequestAccess';
 
 interface dataSetProps {
@@ -24,7 +24,7 @@ const DataSet = (props: dataSetProps) => {
             </div>
             {hasFocus && (
                 <div>
-                    {/* <DataSetMetadata dataset={props.dataset} /> */}
+                    <DataSetDetails datasetId={props.dataset.id} />
                     <RequestAccess datasetId={props.dataset.id} />
                 </div>
             )}
