@@ -2,7 +2,6 @@ import React from "react";
 import { requestModel } from "../../dataModels/requests";
 import RequestInfo from "./RequestInfo";
 import LoadingIndicator from "../LoadingIndicator";
-import FileAccess from "./FileAccess";
 import { getCurrentUser } from "../../utils/funcUtils";
 import RequestControl from "./RequestControl";
 import FileAccessList from "./FileAccessList";
