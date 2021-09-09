@@ -34,3 +34,8 @@ export const logout = () => {
     localStorage.removeItem("currentUser");
     window.location.reload();
 };
+
+export const formatIsoDate: (iso_date: string) => string = (iso_date) => {
+    const date = new Date(iso_date);
+    return date.toLocaleDateString()
+};
