@@ -23,12 +23,12 @@ export const getAllDatasets: getAllDatasetsType = (callbackFunc) => {
 };
 
 
-type getOneDatasetsType = (
+type getOneDatasetType = (
     datasetId: string,
     callbackFunc: (dataset: datasetEmbeddedModel) => void
 ) => void;
 
-export const getOneDatasets: getOneDatasetsType = (datasetId, callbackFunc) => {
+export const getOneDataset: getOneDatasetType = (datasetId, callbackFunc) => {
     fetch(
         `${process.env.REACT_APP_SVC_METADATA_URL}/datasets/${datasetId}?embedded=true`, 
         {

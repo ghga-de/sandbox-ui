@@ -1,6 +1,6 @@
 import React from "react";
 import { datasetEmbeddedModel } from "../../dataModels/metadata";
-import { getOneDatasets } from "../../backendCalls/metadata";
+import { getOneDataset } from "../../backendCalls/metadata";
 import LoadingIndicator from "../LoadingIndicator";
 import FileAccess from "./FileAccess";
 
@@ -8,7 +8,7 @@ const FileAccessList = (props: {datasetId: string}) => {
     const [dataset, setDataset] = React.useState<datasetEmbeddedModel|null>(null);
 
     // on mount:
-    React.useEffect( () => getOneDatasets(props.datasetId, setDataset), []);
+    React.useEffect( () => getOneDataset(props.datasetId, setDataset), []);
 
     return (
         <div className="w3-panel">

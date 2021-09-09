@@ -5,6 +5,14 @@ interface loadingIndicatorProps {
     message?: string;
 };
 
+export const LoadingIndicatorInline = (props: loadingIndicatorProps) => (
+    <div 
+        style={ {display: "inline-block" } }
+        className={`${props.size}-loader`}
+    >
+    </div>
+)
+
 const LoadingIndicator = (props: loadingIndicatorProps) => (
     <div className="w3-container w3-center">
             <div className={`${props.size}-loader`}></div>
