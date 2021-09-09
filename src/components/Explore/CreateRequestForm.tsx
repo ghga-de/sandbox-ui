@@ -40,14 +40,14 @@ const CreateRequestForm = (props: createRequestFormProps) => {
                                 "Please log in with another account."
                             )
                         } else {
-                            const reqId = postNewRequest(
+                            postNewRequest(
                                 {
                                     datasetId: props.datasetId,
                                     purpose: purpose,
-                                    requesterId: currentUser.id
-                                }
+                                    userId: currentUser.id
+                                },
+                                props.setReqId
                             );
-                            props.setReqId(reqId);
                         }
                     } else {
                         alert(

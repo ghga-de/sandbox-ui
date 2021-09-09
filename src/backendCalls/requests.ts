@@ -1,61 +1,93 @@
-import { sleep } from '../utils/funcUtils';
-import requests from '../data/requests';
-import { request, requestOutline} from '../dataModels/requests'
+import { requestInitModel, requestModel } from '../dataModels/requests'
 
-export const getRequestList: () => requestOutline[] = () => {
-    // currently, looks up in the hardcoded requests object;
-    // later, will get the info from a backend API
-    sleep(0.25)
-    return requests.map( (req) => (
-            {    
-                id: req.id,
-                datasetId: req.datasetId,
-                status: req.status,
-                requesterId: req.requesterId
-            }
-        )
-    );
-}
+export type setRequestCallbackType = (request: requestModel[]) => void
 
 
-export const getReqMetadata: (reqId: string) => request = (reqId) => {
-    // currently, looks up in the hardcoded datasets object;
-    // later, will get the info from a backend API
-    
-    sleep(0.25);
-    for (const req of requests) {
-        if (req.id === reqId) {
-            return req;
+export const getAllRequests = (callbackFunc : setRequestCallbackType) => {
+    fetch(
+        `${process.env.REACT_APP_SVC_REQUEST_URL}/requests`, 
+        {
+            method: 'get'
         }
-    };
+    )
+    .then( response => response.json())
+    .then(
+        (data) => {
+            callbackFunc(data);
+        },
+        (error) => {
+            alert("An error occured while fetching the data.");
+        }
+    );
+};
 
-    throw new Error("Request with id " + reqId + " does not exist.");
+
+type updateRequestStatusInterface = (
+    requestId: string,
+    newStatus: string,
+) => void;
+
+export const updateRequestStatus: updateRequestStatusInterface = (requestId, newStatus) => {
+
+
+    const updateRequest = {
+        "status": newStatus
+    }
+
+    fetch(
+        `${process.env.REACT_APP_SVC_REQUEST_URL}/requests/${requestId}`, 
+        {
+            method: 'PATCH',
+            body: JSON.stringify(updateRequest),
+            headers: new Headers({'Content-Type': 'application/json'})
+        }
+    )
+    .then( response => response.json())
+    .then(
+        (data) => {
+            window.location.reload();
+        },
+        (error) => {
+            alert("An error occured while fetching the data.");
+        }
+    );
 };
 
 
 interface newRequestModel {
     datasetId: string;
     purpose: string;
-    requesterId: string;
+    userId: string;
 };
 
-export const postNewRequest: (newRequest: newRequestModel) => string = (newRequest) => {
+type postNewRequestType = (
+    newRequest: newRequestModel,
+    callbackFunc: (requestId: string) => void    
+) => void
+
+export const postNewRequest: postNewRequestType = (newRequest, callbackFunc) => {
     
-    const reqObj: request= {
-        id: "GHGAR-" + Math.round(Math.random()*1000000000).toString(),
-        datasetId: newRequest.datasetId,
-        status: "pending",
-        requesterId: newRequest.requesterId,
-        purpose: newRequest.purpose,
-        history: [
-            {
-                eventType: "created",
-                datetime: new Date()
-            }
-        ]
+    const requestObj: requestInitModel = {
+        dataset_id: newRequest.datasetId,
+        user_id: newRequest.userId,
+        purpose: newRequest.purpose
     }
 
-    requests.push(reqObj);
-
-    return reqObj.id
+    fetch(
+        `${process.env.REACT_APP_SVC_REQUEST_URL}/requests`, 
+        {
+            method: 'POST',
+            body: JSON.stringify(requestObj),
+            headers: new Headers({'Content-Type': 'application/json'})
+        }
+    )
+    .then( response => response.json())
+    .then(
+        (data) => {
+            callbackFunc(data.id)
+        },
+        (error) => {
+            alert("An error occured while fetching the data.");
+        }
+    );
 }

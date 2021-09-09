@@ -1,10 +1,10 @@
-import { requestOutline } from "../../dataModels/requests";
+import { requestModel } from "../../dataModels/requests";
 import RequestSideBar from './RequestSideBar';
 import RequestContent from './RequestContent';
 import { getCurrentUser } from "../../utils/funcUtils";
 
 interface requestProps {
-    reqList: requestOutline[];
+    reqList: requestModel[];
     reqFocus?: string;
 };
 
@@ -14,11 +14,17 @@ const Request = (props: requestProps) => {
     // if currentUser is not a data steward,
     // only show the requests of that user:
     const reqList = (currentUser && !currentUser.isDataSteward) ? (
-        props.reqList.filter( (req) => req.requesterId === currentUser.id)
+        props.reqList.filter( (req) => req.user_id === currentUser.id)
     ) : (
         props.reqList
     )
-
+    
+    // find request that is focussed:
+    const focussedRequest = reqList.filter( req => req.id === props.reqFocus )[0]
+    if (props.reqFocus != null && focussedRequest === undefined) {
+        throw `Request with id "${props.reqFocus}" was not found.`
+    }
+    
     return (
         <div>
             {reqList.length === 0 ? (
@@ -41,7 +47,9 @@ const Request = (props: requestProps) => {
                                     Please select a request from the left.
                                 </div>
                             ) : (
-                                <RequestContent key={"reqContent-" + props.reqFocus} requestId={props.reqFocus}/>
+                                <RequestContent
+                                    request={focussedRequest}
+                                />
                         )}
                     </div>
                 </div>

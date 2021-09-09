@@ -1,4 +1,4 @@
-export interface dataset {
+export interface datasetModel {
     id: string;
     title: string,
     description: string,
@@ -8,7 +8,7 @@ export interface dataset {
     has_data_access_policy: string,
 }; 
 
-export interface file {
+export interface fileModel {
     id: string;
     name: string,
     size: number

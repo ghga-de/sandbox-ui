@@ -1,12 +1,12 @@
 import '../components.css';
 import React from 'react';
-import { dataset } from '../../dataModels/metadata';
+import { datasetModel } from '../../dataModels/metadata';
 import DataSetHeader from './DataSetHeader';
 // import DataSetMetadata from './DataSetMetadata';
 import RequestAccess from './RequestAccess';
 
 interface dataSetProps {
-    dataset: dataset;
+    dataset: datasetModel;
     hasFocus: boolean;
 };
 

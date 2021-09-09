@@ -1,5 +1,5 @@
 import { users } from "../data/users";
-import { user } from "../dataModels/users";
+import { userModel } from "../dataModels/users";
 
 // a synchronous sleep fucntion just for testing:
 export const sleep = (secs: number) => {
@@ -11,7 +11,7 @@ export const bytesToGB = (bytes: number) => (
     (bytes/10**9).toFixed(2)
 );
 
-export const getCurrentUser: () => (user|undefined) = () => {
+export const getCurrentUser: () => (userModel|undefined) = () => {
     const userId = localStorage.getItem("currentUser");
     
     if (userId) {

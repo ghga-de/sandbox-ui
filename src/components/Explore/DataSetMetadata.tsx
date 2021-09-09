@@ -1,9 +1,9 @@
 // import React from 'react';
-// import { dataset } from '../../dataModels/metadata';
+// import { datasetModel } from '../../dataModels/metadata';
 // import Sample from './Sample';
 
 
-// const DataSetMetadata = (props: {dataset: dataset}) => (
+// const DataSetMetadata = (props: {dataset: datasetModel}) => (
 //     <div className="w3-panel">
 //         <span className="w3-text-green w3-center"><b>Samples:</b></span>
 //         {props.dataset.samples.map( (samp) => (
