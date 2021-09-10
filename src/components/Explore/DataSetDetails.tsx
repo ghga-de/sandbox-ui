@@ -23,14 +23,14 @@ const DataSetDetails = (props: {datasetId: string}) => {
                 <h3>Associated Study:</h3>
                 <KeyValueField key_="ID" value={dataset.has_study.id}/>
                 <KeyValueField key_="Title" value={dataset.has_study.title}/>
-                <p>
+                <div>
                     <span className="w3-text-green" style={{ padding: "8px"}}>
                         Abstract:
                     </span>
                     <div className="w3-container">
                         {dataset.has_study.abstract}
                     </div>
-                </p>
+                </div>
             </div>
             <hr/>
             <div className="w3-container">
