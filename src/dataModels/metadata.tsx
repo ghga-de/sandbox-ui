@@ -5,11 +5,33 @@ export interface datasetModel {
     type: string,
     files: string[],
     has_study: string,
-    has_data_access_policy: string,
+    creation_date: string,
 }; 
+
 
 export interface fileModel {
     id: string;
     name: string,
-    size: number
+    size: number,
+    format: string,
+    checksum: string,
+    creation_date: string,
 }; 
+
+
+export interface studyModel {
+    id: string;
+    title: string,
+    abstract: string,
+}; 
+
+
+export interface datasetEmbeddedModel {
+    id: string;
+    title: string,
+    description: string,
+    type: string,
+    files: fileModel[],
+    has_study: studyModel,
+    creation_date: string,
+}

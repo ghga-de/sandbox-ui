@@ -2,10 +2,9 @@ import React from "react";
 import { requestModel } from "../../dataModels/requests";
 import RequestInfo from "./RequestInfo";
 import LoadingIndicator from "../LoadingIndicator";
-import FileAccess from "./FileAccess";
 import { getCurrentUser } from "../../utils/funcUtils";
 import RequestControl from "./RequestControl";
-// import FileAccessList from "./FileAccessList";
+import FileAccessList from "./FileAccessList";
 
 interface requestContentProps {
     request: requestModel
@@ -39,12 +38,24 @@ const RequestContent = (props: requestContentProps) => {
                                     />
                                 </div>
                             ) : (
-                                props.request.status === "approved" && (
-                                    <div>
-                                        <hr/>
-                                        {/* <FileAccessList datasetId={request.datasetId} /> */}
-                                    </div>
-                            ))}
+                                <div>
+                                    <hr/>
+                                    {props.request.status === "pending" ? (
+                                        <p>
+                                            This request is pending.
+                                            Please wait for a data steward to review it.
+                                        </p>
+                                    ) : (
+                                        props.request.status === "approved" ? (
+                                            <FileAccessList datasetId={props.request.dataset_id} />
+                                        ) : (
+                                            <p>
+                                                This request has been rejected by the data steward.
+                                            </p>
+                                        )
+                                    )}
+                                </div>
+                            )}
                         </div>
                 )}
                 

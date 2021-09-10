@@ -6,4 +6,5 @@ welcome_info: |
   It only contains basic functionalities and shouldn't be used
   for production.
 svc_metadata_url: "http://localhost:8001"
+svc_storage_url: "http://localhost:8002"
 svc_request_url: "http://localhost:8003"

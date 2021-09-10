@@ -2,31 +2,37 @@ interface buttonProps {
     icon: string; 
     children: any;
     color?: "green" | "red" | "black";
+    href?: string;
     style?: object;
     className?: string;
     disabled?: boolean;
-    onClick?: () => void;
+    downloadName?: string;
 };
 
-const Button = (props: buttonProps) => {
+const LinkButton = (props: buttonProps) => {
 
     const color = props.disabled ? "grey" : (props.color ? props.color : "black");
-    const style = props.style ? props.style : {};
+    const userDefinedStyle = props.style ? props.style : {};
+    const style = props.disabled ? (
+        { ...{ pointerEvents: "none" }, ...userDefinedStyle}
+    ) : ( userDefinedStyle );
+    const href = props.href ? (props.disabled ? "#" : props.href) : "#";
+    const downloadName = props.downloadName ? props.downloadName : undefined;
 
     return (
-        <button 
+        <a 
             className={
                 `w3-bar-item w3-button w3-round-xlarge w3-${color}` +
                 (props.className ? ` ${props.className}` : "")
             }
             style={style}
-            onClick={props.onClick}
-            disabled={props.disabled ? true : false }
+            href={href}
+            download={downloadName}
         >
             <i className={props.icon} /> &nbsp;
             {props.children}
-        </button>
+        </a>
     );
 };
 
-export default Button;
+export default LinkButton;
