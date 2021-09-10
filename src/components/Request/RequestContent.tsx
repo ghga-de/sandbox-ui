@@ -47,7 +47,10 @@ const RequestContent = (props: requestContentProps) => {
                                         </p>
                                     ) : (
                                         props.request.status === "approved" ? (
-                                            <FileAccessList datasetId={props.request.dataset_id} />
+                                            <FileAccessList 
+                                                key={props.request.dataset_id}
+                                                datasetId={props.request.dataset_id} 
+                                            />
                                         ) : (
                                             <p>
                                                 This request has been rejected by the data steward.

@@ -1,4 +1,5 @@
 import { datasetModel } from '../../dataModels/metadata';
+import { formatIsoDate } from '../../utils/funcUtils';
 import '../components.css';
 
 const DataSetHeader = (props: {dataset: datasetModel}) => (
@@ -15,9 +16,9 @@ const DataSetHeader = (props: {dataset: datasetModel}) => (
                 </tr>
                 <tr>
                     <td className="w3-text-green">
-                        Study ID:
+                        Date:
                     </td>
-                    <td>{props.dataset.has_study}</td>
+                    <td>{formatIsoDate(props.dataset.creation_date)}</td>
                 </tr>
             </tbody></table>
         </div>

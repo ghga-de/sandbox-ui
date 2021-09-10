@@ -14,6 +14,7 @@ export interface fileModel {
     name: string,
     size: number,
     format: string,
+    category: string,
     checksum: string,
     creation_date: string,
 }; 

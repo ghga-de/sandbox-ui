@@ -40,14 +40,20 @@ const CreateRequestForm = (props: createRequestFormProps) => {
                                 "Please log in with another account."
                             )
                         } else {
-                            postNewRequest(
-                                {
-                                    datasetId: props.datasetId,
-                                    purpose: purpose,
-                                    userId: currentUser.id
-                                },
-                                props.setReqId
-                            );
+                            if (purpose && purpose !== "") {
+                                postNewRequest(
+                                    {
+                                        datasetId: props.datasetId,
+                                        purpose: purpose,
+                                        userId: currentUser.id
+                                    },
+                                    props.setReqId
+                                );
+                            } else {
+                                alert(
+                                    "Please provide a purpose!"
+                                )
+                            }
                         }
                     } else {
                         alert(

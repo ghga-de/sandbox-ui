@@ -39,4 +39,3 @@ const FileAccessList = (props: {datasetId: string}) => {
 }
 
 export default FileAccessList;
-export {};
