@@ -8,7 +8,7 @@ const WelcomeModule = () => (
             The GHGA Sandbox Data Portal 
         </h1>
         <h4 className="w3-text-green">
-            Explore. Extract. Experiment.
+            Explore. Extract. Experiment. Enjoy.
         </h4>
 
         {process.env.REACT_APP_WELCOME_INFO && (
