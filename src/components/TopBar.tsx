@@ -55,7 +55,7 @@ const TopBar = (props: topBarProps) => {
             className="w3-bar w3-center w3-round-xlarge background"
         >
             <BarItem 
-                moduleId="welcome"
+                moduleId="dashboard"
                 isHome={true}
                 moduleFocus={props.moduleFocus}
             >

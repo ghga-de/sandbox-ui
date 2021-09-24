@@ -1,12 +1,12 @@
-import Welcome from '../components/Welcome';
+import Dashboard from './Dashboard';
 import Login from './Login/Login';
 import Explore from '../components/Explore/Explore';
 import RequestRouter from './Request/RequestRouter';
 
 const modules = {
-    welcome: {
+    dashboard: {
         authRequired: false,
-        component: <Welcome />
+        component: <Dashboard />
     },
     explore: {
         authRequired: false,

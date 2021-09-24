@@ -1,5 +1,5 @@
 export type moduleIds = (
-    "welcome" |
+    "dashboard" |
     "explore" |
     "request" |
     "login"

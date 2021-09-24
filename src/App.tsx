@@ -3,6 +3,7 @@ import Main from './components/Main';
 import { moduleIds } from './utils/modules';
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import './w3.css';
+import './dashboard.css';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
                 match.params.moduleId === "request" ||
                 match.params.moduleId === "login"
               )
-            ) ? match.params.moduleId : "welcome";
+            ) ? match.params.moduleId : "dashboard";
             
             return (
               <Main moduleFocus={moduleId}/>
