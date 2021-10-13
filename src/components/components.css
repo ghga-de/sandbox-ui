@@ -3,11 +3,11 @@
 }
 
 .foreground {
-    background-color: rgb(74, 74, 74);
+    background-color:rgb(34, 34, 34);
 }
 
 .interactive-item {
-    background-color: rgb(48, 48, 48);
+    background-color:black;
     padding: 0px !important;
 }
 

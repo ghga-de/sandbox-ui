@@ -1,9 +1,7 @@
 host: localhost
 port: 8080
 welcome_info: |
-  This web app is part of an implementation study.
-  It only contains basic functionalities and shouldn't be used
-  for production.
+  This web app is part of an implementation study. It only contains basic functionalities and shouldn't be used for production.
 svc_metadata_url: "http://localhost:8001"
 svc_storage_url: "http://localhost:8002"
 svc_request_url: "http://localhost:8003"

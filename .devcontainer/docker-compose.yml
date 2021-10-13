@@ -20,7 +20,7 @@ services:
     environment:
       SANDBOX_UI_HOST: 0.0.0.0
       SANDBOX_UI_PORT: 8080
-      SANDBOX_UI_WELCOME_INFO: This web app is part of an implementation study.\nIt's not intended for production use.
+      SANDBOX_UI_WELCOME_INFO: This web app is part of an implementation study. It's not intended for production use.
     ports:
       - 8000:8080
     depends_on:
