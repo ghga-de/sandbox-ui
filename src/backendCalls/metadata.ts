@@ -30,7 +30,7 @@ type getOneDatasetType = (
 
 export const getOneDataset: getOneDatasetType = (datasetId, callbackFunc) => {
     fetch(
-        `${process.env.REACT_APP_SVC_METADATA_URL}/datasets/${datasetId}?embedded=true`, 
+        `${process.env.REACT_APP_SVC_METADATA_URL}/datasets/${datasetId}`, 
         {
             method: 'get'
         }

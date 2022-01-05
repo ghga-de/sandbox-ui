@@ -7,6 +7,7 @@ import { requestModel } from "../dataModels/requests";
 import { getAllRequests } from '../backendCalls/requests';
 import { users } from "../data/users";
 
+
 const DashboardModule = () =>{
     const [dsList, setDsList] = React.useState<datasetModel[]|null>(null);
     React.useEffect( () => getAllDatasets(setDsList), []);
@@ -19,20 +20,27 @@ const DashboardModule = () =>{
 
     const RequestApprove =  (reqList !== null) ? reqList.filter( (req) => req.status === "approved") : [];
     var num_reqs_approved= RequestApprove.length;
-
     
     var num_user = users.length;
    
     const [dateState] = useState(new Date());
+
+    var num_Files = 0
+    dsList?.forEach(ds => {
+      ds.files.forEach(file => {
+        num_Files++;
+      })
+    });
+    var num_FileList = num_Files;
 
     return (
 
     <div className="w3-panel w3-center">
         <div style= {{width: "auto", height: "600px"}}
         className="dash_panels">
-            <br /><br /><br /><img src= {logoFull} alt="" width= "200px" height="auto"/><br /><br /><br />
+            <br /><br /><br /> <a href="https://ghga.dkfz.de/" target='_blank'> <img src= {logoFull} alt="" width= "200px" height="auto"/></a><br /><br /><br />
             <h3 style={{color: "black", position: "inherit", textAlign: "center"}}>GHGA Sandbox</h3><br /><br /><br />
-            <p style={{color: "black", fontSize: "20px",position: "inherit" }}>
+            <p style={{color: "black", fontSize: "20px",position: "inherit" }}> 
                 Explore. <br />Extract.<br />Experiment.<br />Enjoy.
             </p>
         </div>
@@ -48,7 +56,7 @@ const DashboardModule = () =>{
       
       <div className="dash_panels">
       <h1 style={{color: "black", fontSize: "20px"}} >
-        Total Requests by Carry:
+        Total Requests by <strong> Carry: </strong>
         <p style= {{ fontSize: "60px", position: "inherit", fontOpticalSizing:"auto" }}> {num_reqs_carry} </p> 
         </h1>
       </div>
@@ -70,6 +78,7 @@ const DashboardModule = () =>{
       <div className="dash_panels">
       <h1 style={{color: "black", fontSize: "20px"}} >
         Total Number of File:
+      <p style= {{ fontSize: "60px", position: "inherit" }}> {num_FileList} </p>
         </h1>
       </div>
       

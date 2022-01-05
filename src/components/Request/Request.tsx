@@ -22,7 +22,8 @@ const Request = (props: requestProps) => {
     // find request that is focussed:
     const focussedRequest = reqList.filter( req => req.id === props.reqFocus )[0]
     if (props.reqFocus != null && focussedRequest === undefined) {
-        throw `Request with id "${props.reqFocus}" was not found.`
+        focusRequestNotFound();
+            
     }
     
     return (
@@ -56,6 +57,11 @@ const Request = (props: requestProps) => {
             )}
         </div>
     );
+
+    function focusRequestNotFound() {
+        var requestNotFound= `Request with id "${props.reqFocus}" was not found.`;
+        throw requestNotFound;
+    }
 };
 
 export default Request;

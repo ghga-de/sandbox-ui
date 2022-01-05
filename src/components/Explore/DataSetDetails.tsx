@@ -10,7 +10,7 @@ const DataSetDetails = (props: {datasetId: string}) => {
     const [dataset, setDataset] = React.useState<datasetEmbeddedModel|null>(null);
 
     // on mount:
-    React.useEffect( () => getOneDataset(props.datasetId, setDataset), []);
+    React.useEffect( () => getOneDataset(props.datasetId, setDataset), [props.datasetId]);
 
     return dataset === null ? (
         <LoadingIndicator

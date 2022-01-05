@@ -31,7 +31,7 @@ const FileAccess = (props: {file: fileModel}) => {
     const [drsObject, setDrsObject] = React.useState<drsObjectModel|null>(null);
 
     // on mount:
-    React.useEffect( () => getOneDrsObject(props.file.id, setDrsObject), []);
+    React.useEffect( () => getOneDrsObject(props.file.id, setDrsObject), [props.file.id]);
 
     return(
         <div 
